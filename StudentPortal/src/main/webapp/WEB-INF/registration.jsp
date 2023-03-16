@@ -36,7 +36,7 @@
 	
 	
 	
-		<form:form action="save" modelmethod="post">
+		<form:form name="myform" action="save" modelmethod="post" onsubmit="return validateform()">
 		
 		
 			Username :
@@ -67,7 +67,7 @@
 				
 				
 			Date of Birth :
-			<form:input type="date" path="Date_B"></form:input>
+			<form:input type="date" path="Date_B" required="true"></form:input>
 			<br>
 			<br>
 			
@@ -154,13 +154,13 @@
 			Confirm Password:
 			<form:label path="Password2"></form:label>
 			<form:input path="Password2" type="password" class="form-control" name="confirm-password" 
-				placeholder="Confirm Password" onsubmit="pass()" required="true"/>
+				placeholder="Confirm Password" required="true"/>
 				
 			<br>
 			<br>
 
 
-			<input type="submit" value="Submit" class="btn btn-black" onclick="alertname()" >
+			<input type="submit" value="Submit" class="btn btn-black"  >
 			
 	</form:form>
 	
@@ -172,18 +172,19 @@
          </div>
       </div>
 	
-
 </body>
 	<script type="text/javascript">
 
-			function alertname() 
+			
+			function validateform()
 			{
-			alert("Form has been submitted");
+				   alert("Form has been submitted Successfully, Now click on Subect Detail's Section below");
+	
 			}
-   
 		</script>
 
 <style>
+
 p{
 font-size: 25px;
 }
