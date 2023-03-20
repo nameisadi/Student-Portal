@@ -14,7 +14,7 @@
 <title>ERROR</title>
 </head>
 <body>
-  
+  <br><br><br>
     <center><c:out value="${msg}"></c:out><br><br>
     
     
@@ -28,8 +28,7 @@
   <br><br>
 </body>
 <style>
-
-  		.btn-black
+		.btn-black
   		{
  		background-color: #000 !important;
     	color: #fff;

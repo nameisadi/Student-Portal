@@ -172,28 +172,40 @@ public class LoginDao {
 			
 public static int insertquery2(registrationbean bean) {
 	
-	System.out.println("bean.getName() "+bean.getName());
-	System.out.println("bean.getF_Name() "+bean.getF_Name());
-	System.out.println("bean.getGender() "+bean.getGender());
-	System.out.println("bean.getMobile() "+bean.getMobile());
-	System.out.println("bean.getAddress() "+bean.getAddress());
-	System.out.println("bean.getDate_B() "+bean.getDate_B());
-	System.out.println("bean.getEmail() "+bean.getEmail());
-	System.out.println("bean.getState() "+bean.getState());
-	System.out.println("bean.getDist() "+bean.getDist());
-	System.out.println("bean.getCity() "+bean.getCity());
-	System.out.println("bean.getUsername() "+bean.getUsername());
-	System.out.println("bean.getPassword() "+bean.getPassword());
-	System.out.println("bean.getPassword2() "+bean.getPassword2());
-
+	/*
+	 * System.out.println("bean.getName() "+bean.getName());
+	 * System.out.println("bean.getF_Name() "+bean.getF_Name());
+	 * System.out.println("bean.getGender() "+bean.getGender());
+	 * System.out.println("bean.getMobile() "+bean.getMobile());
+	 * System.out.println("bean.getAddress() "+bean.getAddress());
+	 * System.out.println("bean.getDate_B() "+bean.getDate_B());
+	 * System.out.println("bean.getEmail() "+bean.getEmail());
+	 * System.out.println("bean.getState() "+bean.getState());
+	 * System.out.println("bean.getDist() "+bean.getDist());
+	 * System.out.println("bean.getCity() "+bean.getCity());
+	 * System.out.println("bean.getUsername() "+bean.getUsername());
+	 * System.out.println("bean.getPassword() "+bean.getPassword());
+	 * System.out.println("bean.getPassword2() "+bean.getPassword2());
+	 */
 	
-	String sql="update semester set(name,f_name,gender,mobile,address,date_b,email,state,dist,city,username,password) values(?,?,?,?,?,?,?,?,?,?,?,?) where id=?";
+	
+	
+	String sql="update login set(name,f_name,gender,mobile,address,date_b,email,state,dist,city,username,password) values(?,?,?,?,?,?,?,?,?,?,?,?) where id=?";
 	
 	return jdbcTemplate.update(sql,new Object[] {bean.getName(),bean.getF_Name(),bean.getGender(),bean.getMobile(),bean.getAddress(),bean.getDate_B(),bean.getEmail(),bean.getState(),bean.getDist(),bean.getCity(),bean.getUsername(),bean.getPassword()});
 
 	}
 
-
+	/*
+	 * public int updatequery(registrationbean bean) { String sql =
+	 * "update login set name='" + bean.getName() +"',f_Name='" + bean.getF_Name()
+	 * +"',gender='" + bean.getGender() + "',mobile='" + bean.getMobile() +
+	 * "',address='" + bean.getAddress() + "',date_b='" + bean.getDate_B() +
+	 * "',email='" + bean.getEmail()+ "',state='" + bean.getState()+ "',dist='" +
+	 * bean.getDist() + "',city='" + bean.getCity() ;
+	 * 
+	 * return jdbcTemplate.update(sql); }
+	 */
 
 }
 
