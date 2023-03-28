@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.print.DocFlavor.READER;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -98,6 +99,11 @@ public String display5(Model model){
 	model.addAttribute("command",new registrationbean());
 	return "updtsem";
 }
+
+
+
+
+
 @RequestMapping(value="/updtsem",method=RequestMethod.POST)
 
 public String display7(registrationbean bean,Model model){
@@ -266,7 +272,26 @@ public String display4(@ModelAttribute("lb") SemesterBean bean,Model model){
 	 	model.addAttribute("command",new LoginBean());
 	 	return "Login";
 	 }
-	  }
+	 
+	 @RequestMapping(value="/Admin",method=RequestMethod.GET)
+
+	 public String dispaly9(Model model){ 
+	 List<LoginBean> list = dao.getList();
+	 List<SemesterBean> list1 = dao.getList1();
+	 System.out.println("list  " +
+			  list);
+	 System.out.println("list1  " +
+			  list1);
+	 model.addAttribute("list", list);
+	 model.addAttribute("list1", list1);
+
+	 	System.out.println("dddddddddd");
+	 	model.addAttribute("command",new LoginBean());
+	 	model.addAttribute("command",new SemesterBean());
+	 	return "Admin";
+	 }
+
+}
 	 
 
 

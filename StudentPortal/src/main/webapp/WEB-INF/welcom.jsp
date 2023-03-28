@@ -43,9 +43,9 @@
 			<label class="logo">Student Portal <img height="25px" width="25px" alt="logo" src="${pageContext.request.contextPath}/resources/image/logo.jpg"></label>
 			<ul>
 			<button type="button" name="back" class="btn btn-black" onclick="history.back()">Back</button>
-						<a href="File.jsp"><button class="btn btn-black">Login/Register</button></a>
-			
-			
+			<a href="File.jsp"><button class="btn btn-black">Login/Register</button></a>
+			<a href="Admin"><button class="btn btn-black">Admin</button></a>
+		
 			</ul>
 </nav>
 
@@ -54,12 +54,12 @@
 			<header>MENU</header>
 			<ul>
 				<li><a href="#"><i class="fas fa-qrcode"></i>PROFILE</a></li>
-				<li><a href="updtsem"><i class="fas fa-link"></i>UPDATE
-						PROFILE</a></li>
+			<!-- 	<li><a href="updtsem"><i class="fas fa-link"></i>UPDATE
+						PROFILE</a></li> -->
 				<li><a href="view"><i class="fas fa-stream"></i>VIEW
 						MARK</a></li>
-				<li><a href="updt"><i class="fas fa-calendar-week"></i>UPDATE
-						MARK</a></li>
+		<!-- 		<li><a href="updt"><i class="fas fa-calendar-week"></i>UPDATE
+						MARK</a></li> -->
 				<li><a href="notice"><i class="fas fa-calendar-week"></i>NOTICE BOARD</a></li>
 				<li><a href="logout"><i class="fas fa-calendar-week"></i>LOGOUT</a></li>
 			</ul>
@@ -146,16 +146,6 @@
 		 </TABLE>
           <br><br>
           
-          <!-- <a href="updtsem"><button class="btn-black">update</button></a><br>
-          		
-          
-          	<br>	
-          
-          
-         <h3 align="center">VIEW THE DETAILS OF EACH SUBJECT - <a href="view"><button class="btn-black">Click Here</button></a></h3>
-		<br><br><br>
-		 -->
-   
 </body>
 
  <style>

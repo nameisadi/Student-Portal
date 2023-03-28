@@ -89,7 +89,8 @@ public class LoginDao {
 
 
 	public List<LoginBean> getList() {
-		return jdbcTemplate.query("select * from login ",new RowMapper<LoginBean>() {
+		return jdbcTemplate.query("SELECT * FROM login",new RowMapper<LoginBean>()
+		{
 			public LoginBean mapRow(ResultSet rs, int row) throws SQLException {
 				LoginBean e = new LoginBean();
 				
@@ -136,7 +137,6 @@ public class LoginDao {
 		return jdbcTemplate.query("select * from Semester ", new RowMapper<SemesterBean>() {
 			public SemesterBean mapRow(ResultSet rs, int row) throws SQLException {
 				SemesterBean e = new SemesterBean();
-				
 				e.setRoll(rs.getString(1));
 				e.setEnglish(rs.getString(2));
 				e.setMath(rs.getString(3));
