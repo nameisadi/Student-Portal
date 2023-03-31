@@ -46,51 +46,8 @@
 
 		
 
-				 <h3> All STUDENT'S DATA SHOWN BELOW:</h3>
-				
- 
-                <TABLE align="center" width="30%" cellpadding="3" BORDER="3">
-                
-<tr>
-		<th>ID</th>
-		<th>USERNAME</th>
-		<th>NAME</th>
-		<th>GENDER</th>
-		<th>FATHER NAME</th>
-		<th>DATE OF BIRTH</th>
-		<th>EMAIL</th>
-		<th>MOBILE</th>
-		<th>ADDRESS</th>
-		<th>STATE</th>
-		<th>DISTRICT</th>
-		<th>CITY</th>
-		
-		   </tr>
-    <c:forEach var="e" items="${list}">
-           
-     <tr>
-           	
-        <td>${e.id}</td>
-        <td>${e.username}</td>
-		<td>${e.name}</td>
-        <td>${e.gender}</td>
-        <td>${e.f_name}</td>
-        <td>${e.date_B}</td>
-        <td>${e.email}</td>
-        <td>${e.mobile}</td>
-        <td>${e.address}</td>
-        <td>${e.state}</td>
-        <td>${e.dist}</td>
-        <td>${e.city}</td>
-        
-                 
-     </tr>
-
-	   </c:forEach>	
-	   	 	     
-   </TABLE><br><br><br><br>
- <%--    
- <h3 align="center"> All STUDENT'S MARKS SHOWN BELOW:</h3>
+    
+ <h3> All STUDENT'S MARKS SHOWN BELOW:</h3>
     
                   
 <TABLE align="center" width="25%" cellpadding="2" BORDER="2">
@@ -117,7 +74,7 @@
     </tr>
   </c:forEach>
 </TABLE>
- --%>
+
 
 
 

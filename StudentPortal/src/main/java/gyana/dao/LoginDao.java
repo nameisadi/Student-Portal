@@ -137,6 +137,7 @@ public class LoginDao {
 		return jdbcTemplate.query("select * from Semester ", new RowMapper<SemesterBean>() {
 			public SemesterBean mapRow(ResultSet rs, int row) throws SQLException {
 				SemesterBean e = new SemesterBean();
+				e.setId(rs.getString(8));
 				e.setRoll(rs.getString(1));
 				e.setEnglish(rs.getString(2));
 				e.setMath(rs.getString(3));

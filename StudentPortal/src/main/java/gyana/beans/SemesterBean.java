@@ -44,7 +44,14 @@ public class SemesterBean {
 	public void setMaxmark(String maxmark) {
 		this.maxmark = maxmark;
 	}
-
+	 public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	 private String id;
 	 private String markobt;
 	 private String maxmark;
 	 private String roll;

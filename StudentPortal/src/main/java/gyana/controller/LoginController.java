@@ -290,6 +290,23 @@ public String display4(@ModelAttribute("lb") SemesterBean bean,Model model){
 	 	model.addAttribute("command",new SemesterBean());
 	 	return "Admin";
 	 }
+	 @RequestMapping(value="/marks",method=RequestMethod.GET)
+
+	 public String dispaly10(Model model){ 
+	 List<LoginBean> list = dao.getList();
+	 List<SemesterBean> list1 = dao.getList1();
+	 System.out.println("list  " +
+			  list);
+	 System.out.println("list1  " +
+			  list1);
+	 model.addAttribute("list", list);
+	 model.addAttribute("list1", list1);
+
+	 	System.out.println("dddddddddd");
+	 	model.addAttribute("command",new LoginBean());
+	 	model.addAttribute("command",new SemesterBean());
+	 	return "marks";
+	 }
 
 }
 	 
