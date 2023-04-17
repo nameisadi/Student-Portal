@@ -8,7 +8,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home Page</title>
+<title>About</title>
 </head>
 <body>
 
@@ -31,12 +31,10 @@
 				<div class="half-area">
 				<br><br>
 				 <img
-				src="${pageContext.request.contextPath}/resources/image/Exam.png"
-				height="350" width="600" class="img12" />
+				src="${pageContext.request.contextPath}/resources/image/online.png"
+				height="270" width="470" class="img" />
 					
                	<p >Step into the digital halls of knowledge and unlock the doors to your academic progress! By logging in here, you'll gain access to the virtual campus of your school website and be able to explore the inner workings of your academic journey. Discover your exam details and unearth the gems of your academic achievements from the comfort of your own screen. Don't wait any longer, join the online community of learners and embark on a journey of academic discovery.</p>
-             <h3 >Click Login here to redirect to login page</h3>
-            <a href="Login"><button class="btn-red">Login</button></a>
                     <br>
       				</div>
       				
@@ -44,8 +42,8 @@
 </body>
 
 <style>
-.img12{
-margin-left:290px;
+.img{
+margin-left:450px;
 
 }
 .btn-red{

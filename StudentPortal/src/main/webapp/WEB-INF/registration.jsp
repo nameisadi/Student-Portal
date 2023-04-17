@@ -19,6 +19,7 @@
 <div class="sidenav">
          <div class="login-main-text">
             <h1>Student<br>Portal</h1>
+            
             <p>Please fill in the required information</p>
              <img src="${pageContext.request.contextPath}/resources/image/logo.jpg"
                             height="250" width="250" class="img12" />

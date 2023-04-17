@@ -49,7 +49,7 @@
 				 <h3> All STUDENT'S DATA SHOWN BELOW:</h3>
 				
  
-                <TABLE align="center" width="30%" cellpadding="3" BORDER="3">
+                <TABLE align="center" width="25%" cellpadding="3" BORDER="3">
                 
 <tr>
 		<th>ID</th>

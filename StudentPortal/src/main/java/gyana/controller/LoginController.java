@@ -272,7 +272,13 @@ public String display4(@ModelAttribute("lb") SemesterBean bean,Model model){
 	 	model.addAttribute("command",new LoginBean());
 	 	return "Login";
 	 }
-	 
+	 @RequestMapping(value="/about",method=RequestMethod.GET)
+
+	 public String aboutt(Model model){
+	 	System.out.println("dddddddddd");
+	 	model.addAttribute("command",new registrationbean());
+	 	return "about";
+	 }
 	 @RequestMapping(value="/Admin",method=RequestMethod.GET)
 
 	 public String dispaly9(Model model){ 
