@@ -3,152 +3,470 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Home Page</title>
 </head>
 <body>
-
-<nav>
+<div id="loader">
+<img alt="" src="${pageContext.request.contextPath}/resources/image/loader.gif"></div>	
+<div id="content">
+	<nav>
 	<div class="login-main-text">
 		<h1>
-			Student Portal 
-			<img src="${pageContext.request.contextPath}/resources/image/logo.jpg"
-				height="50" width="50" class="img1" /><ul>
+			Student Portal <img
+				src="${pageContext.request.contextPath}/resources/image/logo.jpg"
+				height="50" width="50" class="img1" />
+			<ul>
 				<a href="File.jsp"><button class="btn btn-black">Home</button></a>
 				<a href="about"><button class="btn btn-black">About</button></a>
-				<a href="#"><button class="btn btn-black">Contact Us</button></a>
+				<a href="contact"><button class="btn btn-black">Contact
+						Us</button></a>
 
 			</ul>
 		</h1>
-</div>
-
+	</div>
 	</nav>
-			
-				<div class="half-area">
-				<br><br>
-				 <img
-				src="${pageContext.request.contextPath}/resources/image/Exam.png"
-				height="350" width="600" class="img12" />
-					
-               	<p >Step into the digital halls of knowledge and unlock the doors to your academic progress! By logging in here, you'll gain access to the virtual campus of your school website and be able to explore the inner workings of your academic journey. Discover your exam details and unearth the gems of your academic achievements from the comfort of your own screen. Don't wait any longer, join the online community of learners and embark on a journey of academic discovery.</p>
-             <h3 >Click Login here to redirect to login page</h3>
-            <a href="Login"><button class="btn-red">Login</button></a>
-                    <br>
-      				</div>
-      				
-      			
+
+	<div class="notice-con">
+		<div class="title">
+			<a href="notice">Notice </a>
+		</div>
+
+		<ul>
+			<li>Tomorrow there will be a holiday</li>
+
+
+			<li>New Admission's Form Fill-up is going on.</li>
+
+			<li>Reminder: The deadline for submitting your final project is
+				May 15th. Make sure to get it in on time!</li>
+			<li>Student Government Association (SGA) meeting will be held on
+				May 10th at 3pm in the Student Center. All are welcome to attend.</li>
+			<li>Graduation rehearsal will take place on May 20th at 10am in
+				the gymnasium. All graduating students are required to attend.</li>
+			<li>Campus Health Services will be offering free flu shots on
+				May 25th from 1pm to 4pm. Don't miss this opportunity to protect
+				yourself from the flu!</li>
+			<li>Attention all graduating seniors! The deadline to order your
+				cap and gown is May 10th. Don't miss out on this important
+				graduation tradition!</li>
+
+			<li>Attention Students! The library will be closed for
+				maintenance on May 5th. We apologize for any inconvenience.</li>
+
+			<li>Kindly, Do your Last Year Form Fillup.</li>
+			<li>The Career Services office will be hosting a job fair on
+				June 1st from 10am to 2pm in the Student Center. Dress
+				professionally and bring copies of your resume!</li>
+
+
+		</ul>
+	</div>
+
+
+
+
+
+	<div class="half-area">
+	
+		<div class="inner-img">
+		<img src="${pageContext.request.contextPath}/resources/image/Exam.png"
+			 height="350" width="600" class="img12" />
+		</div>
+		
+		<div class="para"> 
+		<p>Step into the digital halls of knowledge and unlock the doors
+			to your academic progress! By logging in here, you'll gain access to
+			the virtual campus of your school website and be able to explore the
+			inner workings of your academic journey. Discover your exam details
+			and unearth the gems of your academic achievements from the comfort
+			of your own screen. Don't wait any longer, join the online community
+			of learners and embark on a journey of academic discovery.</p>
+		
+		</div>
+		
+		<a href="Login"><button class="btn-red">Login</button></a>
+	
+	
+	</div>
+	<br>
+
+
+
+
+
+
+
+	<footer class="footer">
+
+	<ul class="social-icon">
+		<li class="social-icon__item"><a class="social-icon__link"
+			href="#"> <ion-icon name="logo-facebook"></ion-icon>
+		</a></li>
+		<li class="social-icon__item"><a class="social-icon__link"
+			href="#"> <ion-icon name="logo-twitter"></ion-icon>
+		</a></li>
+		<li class="social-icon__item"><a class="social-icon__link"
+			href="#"> <ion-icon name="logo-linkedin"></ion-icon>
+		</a></li>
+		<li class="social-icon__item"><a class="social-icon__link"
+			href="#"> <ion-icon name="logo-instagram"></ion-icon>
+		</a></li>
+	</ul>
+	<ul class="menu">
+		<li class="menu__item"><a class="menu__link" href="File.jsp">Home</a></li>
+		<li class="menu__item"><a class="menu__link" href="about">About</a></li>
+		<li class="menu__item"><a class="menu__link" href="contact">Contact</a></li>
+
+	</ul>
+	<p>&copy;2023 Aditya Tripathy | All Rights Reserved</p>
+	</footer>
+</div>
 </body>
+<script type="text/javascript">
+window.onload=function(){
+	
+	document.getElementById('loader').style.display="none";
+	document.getElementById('content').style.display="block";
+
+}
+</script>
+<script type="module"
+	src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule
+	src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 <style>
-.img12{
-margin-left:290px;
+#loader{
+position:absolute;
+margin: auto;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+width: 150px;
+height: 150px;
+}
+#loader img{
+border-radius:35px;
+width: 150px;
+}
+
+a {
+	color: white;
+}
+
+.notice-con {
+	overflow: hidden;
+	position: relative;
+	top: 0;
+	left: 0;
+	right: 0;
+	font-family: "Roboto", sans-serif;
+	box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.3);
+}
+
+.notice-con .title {
+	border-radius: 25px;
+	position: absolute;
+	background: #df2020;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	padding: 0 24px;
+	color: white;
+	font-weight: bold;
+	z-index: 200;
+}
+
+.notice-con ul {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	animation: scroll 54s infinite linear;
+}
+
+.notice-con ul li {
+	white-space: nowrap;
+	padding: 10px 24px;
+	color: #494949;
+	position: relative;
+}
+
+.notice-con ul li::after {
+	content: "";
+	width: 1px;
+	height: 100%;
+	background: #b8b8b8;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.notice-con ul li:last-child::after {
+	display: none;
+}
+
+@keyframes scroll {
+from { 
+
+transform:translateX(100%);
+	
+}
+
+to {
+
+	transform: translateX(-7557px);
+	
+}
 
 }
-.btn-red{
-margin-left:565px;
+.footer {
+	border-radius: 25px;
+	position: relative;
+	width: 100%;
+	background: black; /*  #3586ff */
+	min-height: 100px;
+	padding: 20px 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
-h3{
-color:white;
-margin-left:450px;
+
+.social-icon, .menu {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 10px 0;
+	flex-wrap: wrap;
 }
-.half-area{
-align-items:center;
-padding:3px;
-background-color:black;
+
+.social-icon__item, .menu__item {
+	list-style: none;
 }
+
+.social-icon__link {
+	font-size: 2rem;
+	color: #fff;
+	margin: 0 10px;
+	display: inline-block;
+	transition: 0.5s;
+}
+
+.social-icon__link:hover {
+	transform: translateY(-10px);
+}
+
+.menu__link {
+	font-size: 1.2rem;
+	color: #fff;
+	margin: 0 10px;
+	display: inline-block;
+	transition: 0.5s;
+	text-decoration: none;
+	opacity: 0.75;
+	font-weight: 300;
+}
+
+.menu__link:hover {
+	opacity: 1;
+}
+
+.footer p {
+	color: #fff;
+	margin: 15px 0 10px 0;
+	font-size: 1rem;
+	font-weight: 300;
+}
+
+.wave {
+	position: absolute;
+	top: -100px;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	background: url("https://i.ibb.co/wQZVxxk/wave.png");
+	background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+	z-index: 1000;
+	opacity: 1;
+	bottom: 0;
+	animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+	z-index: 999;
+	opacity: 0.5;
+	bottom: 10px;
+	animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+	z-index: 1000;
+	opacity: 0.2;
+	bottom: 15px;
+	animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+	z-index: 999;
+	opacity: 0.7;
+	bottom: 20px;
+	animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves { 
+0% {
+	background-position-x: 1000px;
+}
+
+100%
+{
+background-positon-x:0px;
+}
+}
+@keyframes animate { 
+0%
+ {
+	background-position-x: -1000px;
+}
+
+100%
+{
+background-positon-x:0px;
+}
+}
+.img12 {
+	margin-left: 30%;
+}
+
+.btn-red {
+	margin-left: 45%;
+	border-radius: 8px;
+	background-color: black;
+}
+
+.half-area {
+	align-items: center;
+	padding: 3px;
+	background-color: white;
+}
+
+.half-area p {
+	align-items: center;
+	color: black;
+}
+
+.half-area h3 {
+	align-items: center;
+	font-weight: 700;
+	color: black;
+}
+
 body {
-background-color:black;
-padding:5px;
-font-family: "Lato", sans-serif;
+	padding: 5px;
+	font-family: "Lato", sans-serif;
 }
 
-a{
-margin: 65px ;
+nav a {
+	margin: 50px;
 }
-p{
-padding:1%;
-margin-top:5%;
-color:white;
-font-size: 20px;
+
+p {
+	padding: 1%;
+	margin-top: 5%;
+	color: white;
+	font-size: 20px;
 }
-.main-head{
-    height: 150px;
-    background: #FFF;
-   
+
+.main-head {
+	height: 150px;
+	background: #FFF;
 }
 
 .sidenav {
-    height: 100%;
-    width:50%;
-    background-color: #000;
-    overflow-x: hidden;
-    padding-top: 10px;
+	height: 100%;
+	width: 50%;
+	background-color: #000;
+	overflow-x: hidden;
+	padding-top: 10px;
 }
 
-
 .main {
-    padding: 0px 25px;
+	padding: 0px 25px;
 }
 
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
+	.sidenav {
+		padding-top: 15px;
+	}
 }
 
 @media screen and (max-width: 450px) {
-    .login-form{
-        margin-top: 10%;
-    }
-
-    .register-form{
-        margin-top: 10%;
-    }
+	.login-main-text{
+	 float: right;
+    display: block;
+	}
+	
+	.half-area {
+		margin-right: 10%;
+	}
+	.login-form {
+		margin-top: 10%;
+	}
+	.register-form {
+		margin-top: 10%;
+	}
 }
 
-@media screen and (min-width: 768px){
-    .main{
-        margin-left: 40%; 
-    }
-
-    .sidenav{
-        width: 40%;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-    }
-
-    .login-form{
-        margin-top: 50%;
-    }
-
-    .register-form{
-        margin-top: 20%;
-    }
+@media screen and (min-width: 768px) {
+	.main {
+		margin-left: 40%;
+	}
+	.sidenav {
+		width: 40%;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+	}
+	.login-form {
+		margin-top: 50%;
+	}
+	.register-form {
+		margin-top: 20%;
+	}
 }
 
-
-.login-main-text{
+.login-main-text {
 	padding: 1px;
-    color: #fff;
+	color: #fff;
 }
 
-.login-main-text h2{
-    font-weight: 300;
+.login-main-text h2 {
+	font-weight: 300;
 }
 
-.btn-black{
-    background-color: #000 !important;
-    color: #fff;
+.btn-black {
+	border-radius: 9px;
+	background-color: #000 !important;
+	color: #fff;
 }
-
 
 nav {
-    padding-top: 25px;
-
+	padding: 10px;
+	border-radius: 12px;
 	list-style-type: none;
 	background: black;
 	height: 80px;
@@ -164,24 +482,22 @@ label.logo {
 }
 
 nav ul {
-	 
 	float: right;
 	margin-right: 90px;
 }
 
- nav ul li {
+nav ul li {
 	display: inline-block;
 	font-size: 20px;
 	line-height: 80px;
 	margin: 0 5px;
-	
 }
 
 nav ul li a {
 	color: white;
 	font-size: 18px;
 	padding: 7px 13px;
- 	border-radius: 5px;
+	border-radius: 5px;
 	text-transform: uppercase;
 }
 
@@ -189,24 +505,23 @@ nav ul li a:active, nav ul li a:hover {
 	background: brown;
 	transition: .5s;
 }
- 	
- a:active, a:hover {
-	background: green;
+
+a:active, a:hover {
+	border-radius: 15px;
+	background: white;
 	transition: .5s;
-}	
-    button{
-    background-color: black;
-    color: #fff;
-   	height:30px;
-    width:100px;
-    }
-     body {
-           font-family: "Lato", sans-serif;
-          }
-         btn-red{
-	    background-color: red;
-	  }
- 
+}
+
+button {
+	background-color: black;
+	color: #fff;
+	height: 30px;
+	width: 100px;
+}
+
+body {
+	font-family: "Lato", sans-serif;
+}
 </style>
 
 </html>

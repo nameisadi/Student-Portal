@@ -8,10 +8,9 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>About</title>
+<title>Contact Us</title>
 </head>
-<body>	
-
+<body>
 <div id="loader">
 <img alt="" src="${pageContext.request.contextPath}/resources/image/loader.gif"></div>	
 <div id="content">
@@ -33,22 +32,31 @@
 			
 				<div class="half-area">
 				<br><br><br>
-									<h2 data-text="About Us">A<u>bout U</u>s</h2><br>
+									<h2 data-text="Contact Us">C<u>ontact U</u>s</h2><br>
+									
 				
 				 <img
-				src="${pageContext.request.contextPath}/resources/image/online.png"
-				height="300" width="550" class="img" />
-				<p>The "Student Portal" project is a comprehensive platform designed to streamline the management of exams and academic activities for students. The portal allows students to log in and access all their course materials, including lecture notes, assignments, and announcements.</p>
-               	<p >Step into the digital halls of knowledge and unlock the doors to your academic progress! By logging in here, you'll gain access to the virtual campus of your school website and be able to explore the inner workings of your academic journey. Discover your exam details and unearth the gems of your academic achievements from the comfort of your own screen. Don't wait any longer, join the online community of learners and embark on a journey of academic discovery.</p>
-                    
-                    <p>The exam management system is a key feature of the portal, which enables students to view their exam schedules, submit online assignments, and receive their exam results. The system also provides real-time updates on exam dates, changes, and any other important announcements related to the exams.</p>
-      				<p>The portal is user-friendly and easy to navigate, making it simple for students to access the information they need. It is also highly secure, with password-protected access and advanced security protocols in place to safeguard student data.</p>
-      				<br>
+				src="${pageContext.request.contextPath}/resources/image/contact.png"
+				height="270" width="500" class="img" /><br><br>
+				
+				<ul>
+				<li> <img
+				src="${pageContext.request.contextPath}/resources/image/Gmail.png"
+				height="30" width="50" class="img" /><p>  - <u>College.utkal@gmail.com</u> </p></li><br>
+				<li><img
+				src="${pageContext.request.contextPath}/resources/image/call.png"
+				height="28" width="35" class="img" /><p> -   +<u>91-9000000008</u> </p></li>
+				</ul>
+												<h3>If You Have Questions Or Need Assistance,<br> Please Contact Us<br> And We Will Be In Touch With You. </h3>
+			
       				</div><br><br>
       				
-      				  				
+        				
     <footer class="footer">
-    
+   
+    <h4><u>Find Us</u> - </h4>
+    <li><a><iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d662.5651589393312!2d85.83445937174774!3d20.277672092975706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909e5cfad9323%3A0x78fd24d40c792810!2sNational%20Informatics%20Centre!5e0!3m2!1sen!2sin!4v1682491693625!5m2!1sen!2sin" width="350" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </a></li> <br>
     <ul class="social-icon">
       <li class="social-icon__item"><a class="social-icon__link" href="#">
           <ion-icon name="logo-facebook"></ion-icon>
@@ -71,17 +79,21 @@
     </ul>
     <p>&copy;2023 Aditya Tripathy | All Rights Reserved</p>
   </footer>  				
-  </div>			
-</body>
-<script type="text/javascript">
+      </div>			
+ </body>
+ 
+ 
+ <script type="text/javascript">
 window.onload=function(){
 	
 	document.getElementById('loader').style.display="none";
 	document.getElementById('content').style.display="block";
 
+
 }
 </script>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+ 
+ <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 <style>
@@ -100,7 +112,35 @@ height: 150px;
 border-radius:35px;
 width: 150px;
 }
- .footer {
+
+h3{
+font-weigth: 800;
+color:black;
+margin-left:30%;
+}
+ .img {
+        display: inline-block;
+        vertical-align: left;
+    }
+
+ul{
+        list-style-type: none;
+
+}
+p{
+margin-left:10px;
+display: inline-block;
+font-weigth: 700;
+font-size: 19px;
+color:black;
+}
+h4{
+color:white;
+}
+.map{
+border-radius:14px;
+}
+.footer {
   border-radius:25px;
   position: relative;
   width: 100%;
@@ -112,6 +152,41 @@ width: 150px;
   align-items: center;
   flex-direction: column;
 }
+
+h2{
+margin-left:30%;
+position:relative;
+font-size:2.5vw;
+color:#252839;
+-webkit-text-stroke: 0.3vw #383d52;
+text-transform: uppercase;
+
+}
+h2::before{
+content: attr(data-text);
+position: absolute;
+top:0;
+left:0;
+width:0;
+height:100%;
+color:white;
+-webkit-text-stroke: 0vw #383d52;
+border-right: 2px solid white;
+overflow: hidden;
+animation: animate 6s linear infinite;
+}
+@keyframes animate
+{
+	0%,10%,100%
+	{
+		width: 0;
+	}
+	70%
+	{
+		width:28%;
+	}
+}
+
 
 .social-icon,
 .menu {
@@ -161,96 +236,6 @@ width: 150px;
   font-weight: 300;
 }
 
-.wave {
-  position: absolute;
-  top: -100px;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background: url("https://i.ibb.co/wQZVxxk/wave.png");
-  background-size: 1000px 100px;
-}
-
-.wave#wave1 {
-  z-index: 1000;
-  opacity: 1;
-  bottom: 0;
-  animation: animateWaves 4s linear infinite;
-}
-
-.wave#wave2 {
-  z-index: 999;
-  opacity: 0.5;
-  bottom: 10px;
-  animation: animate 4s linear infinite !important;
-}
-
-.wave#wave3 {
-  z-index: 1000;
-  opacity: 0.2;
-  bottom: 15px;
-  animation: animateWaves 3s linear infinite;
-}
-
-.wave#wave4 {
-  z-index: 999;
-  opacity: 0.7;
-  bottom: 20px;
-  animation: animate 3s linear infinite;
-}
-
-@keyframes animateWaves {
-  0% {
-    background-position-x: 1000px;
-  }
-  100% {
-    background-positon-x: 0px;
-  }
-}
-
-@keyframes animate {
-  0% {
-    background-position-x: -1000px;
-  }
-  100% {
-    background-positon-x: 0px;
-  }
-}
-
-
-h2{
-margin-left:30%;
-position:relative;
-font-size:2.5vw;
-color:#252839;
--webkit-text-stroke: 0.3vw #383d52;
-text-transform: uppercase;
-
-}
-h2::before{
-content: attr(data-text);
-position: absolute;
-top:0;
-left:0;
-width:0;
-height:100%;
-color:white;
--webkit-text-stroke: 0vw #383d52;
-border-right: 2px solid white;
-overflow: hidden;
-animation: animate 6s linear infinite;
-}
-@keyframes animate
-{
-	0%,10%,100%
-	{
-		width: 0;
-	}
-	70%
-	{
-		width:20%;
-	}
-}
 .img{
 margin-left:450px;
 
@@ -258,21 +243,11 @@ margin-left:450px;
 .btn-red{
 margin-left:565px;
 }
-h3{
-color:white;
-margin-left:450px;
-}
+
 .half-area{
 align-items:center;
 padding:3px;
-background-color:white;
 }
-
-.half-area p {
-color:black;
-}
-
-
 body {
 padding:5px;
 font-family: "Lato", sans-serif;
@@ -281,13 +256,8 @@ font-family: "Lato", sans-serif;
 a{
 margin: 65px ;
 }
-p{
-font-weight:500;
-padding:2%;
-margin-top:1%;
-color:white;
-font-size: 26px;
-}
+
+
 .main-head{
     height: 150px;
     background: #FFF;
@@ -349,10 +319,6 @@ font-size: 26px;
     color: #fff;
 }
 
-.login-main-text h2{
-    font-weight: 800;
-}
-
 .btn-black{
     background-color: #000 !important;
     color: #fff;
@@ -360,7 +326,7 @@ font-size: 26px;
 
 
 nav {
-    padding: 10px;
+    padding: 12px;
 	border-radius:12px;
 	list-style-type: none;
 	background: black;
@@ -404,8 +370,8 @@ nav ul li a:active, nav ul li a:hover {
 }
  	
  a:active, a:hover {
- 	border-radius:12px;
 	background: white;
+	border-radius:12px;
 	transition: .5s;
 }	
     button{

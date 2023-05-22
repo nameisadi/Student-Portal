@@ -88,9 +88,12 @@ public class LoginDao {
 
 
 
-	public List<LoginBean> getList() {
+	public List<LoginBean> getList(String user) {
+		
+		  System.out.println("LOGIN DETAILS"+user); 
+
 	
-		return jdbcTemplate.query("SELECT * FROM login",new RowMapper<LoginBean>()
+		return jdbcTemplate.query("SELECT * FROM login where username='"+user+"'",new RowMapper<LoginBean>()
 		{
 			public LoginBean mapRow(ResultSet rs, int row) throws SQLException {
 				LoginBean e = new LoginBean();
@@ -134,8 +137,8 @@ public class LoginDao {
 		
 	}
 
-	public List<SemesterBean> getList1() {
-		return jdbcTemplate.query("select * from Semester", new RowMapper<SemesterBean>() {
+	public List<SemesterBean> getList1(int sec ) {
+		return jdbcTemplate.query("select * from Semester where id='"+sec+"'", new RowMapper<SemesterBean>() {
 			public SemesterBean mapRow(ResultSet rs, int row) throws SQLException {
 				SemesterBean e = new SemesterBean();
 				e.setId(rs.getString(8));

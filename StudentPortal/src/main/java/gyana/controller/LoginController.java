@@ -129,6 +129,8 @@ public String display4(@ModelAttribute("lb") SemesterBean bean,Model model){
 	return "Semester";
 }
 
+
+
 	@RequestMapping(value="/log",method=RequestMethod.POST)
 	public String save(@ModelAttribute("lb") LoginBean bean,BindingResult result,Model model,HttpSession session,HashMap<String,Object> temp){
 	     
@@ -150,10 +152,11 @@ public String display4(@ModelAttribute("lb") SemesterBean bean,Model model){
         	if(ret==true){
     			message="successful";
     			temp.put("msg",message);
-    			 List<LoginBean> list = dao.getList();
+    			 List<LoginBean> list = dao.getList(bean.getUsername());
     			 System.out.println("list  " +
     					  list);
     			 model.addAttribute("list", list);
+    			 session.setAttribute("username", bean.getUsername());
     			return "welcom";
     		}else{
     			message="****THE USERNAME AND PASSWORD YOU HAVE ENTERED DOESN'T EXIST****";
@@ -226,9 +229,13 @@ public String display4(@ModelAttribute("lb") SemesterBean bean,Model model){
 	 
 	
 	 @RequestMapping(value="/view",method=RequestMethod.GET)
-	 public String display5(@ModelAttribute("lb") SemesterBean bean,Model model){
-	 	System.out.println("dddddddddd");
-	 	 List<SemesterBean> list = dao.getList1();
+	 
+	 public String display5(@ModelAttribute("lb") SemesterBean bean,Model model, HttpSession session ){
+		 System.out.println("id  " + session.getAttribute("id"));	
+		 int sec = (int) session.getAttribute("id");
+			/*
+			 * System.out.println("dddddddddd");
+			 */	 	 List<SemesterBean> list = dao.getList1(sec);
 		 System.out.println("list  " +
 				  list);
 		 model.addAttribute("list", list);
@@ -260,8 +267,10 @@ public String display4(@ModelAttribute("lb") SemesterBean bean,Model model){
 		 */ 
 	 @RequestMapping(value="/welcom",method=RequestMethod.GET)
 		
-		public String register(@ModelAttribute("lb") registrationbean bean,Model model){
+		public String register(@ModelAttribute("lb") registrationbean bean,Model model,HttpSession session){
 			System.out.println("dddddddddd");
+			String usernamne=(String) session.getAttribute("username");
+			System.out.println("usernamne "+usernamne);
 			model.addAttribute("command",new registrationbean());
 			return "welcom";
 		}
@@ -279,39 +288,49 @@ public String display4(@ModelAttribute("lb") SemesterBean bean,Model model){
 	 	model.addAttribute("command",new registrationbean());
 	 	return "about";
 	 }
+	 
+	 @RequestMapping(value="/contact",method=RequestMethod.GET)
+
+	 public String contactt(Model model){
+	 	System.out.println("dddddddddd");
+	 	model.addAttribute("command",new registrationbean());
+	 	return "contact";
+	 }
+	 
 	 @RequestMapping(value="/Admin",method=RequestMethod.GET)
 
 	 public String dispaly9(Model model){ 
-	 List<LoginBean> list = dao.getList();
+			/* List<LoginBean> list = dao.getList(); */
 	 List<SemesterBean> list1 = dao.getList1();
-	 System.out.println("list  " +
-			  list);
+		/*
+		 * System.out.println("list  " + list);
+		 */
 	 System.out.println("list1  " +
 			  list1);
-	 model.addAttribute("list", list);
-	 model.addAttribute("list1", list1);
+		/*
+		 * model.addAttribute("list", list);
+		 */	 model.addAttribute("list1", list1);
 
 	 	System.out.println("dddddddddd");
 	 	model.addAttribute("command",new LoginBean());
 	 	model.addAttribute("command",new SemesterBean());
 	 	return "Admin";
 	 }
+	 
+	 
 	 @RequestMapping(value="/marks",method=RequestMethod.GET)
 
-	 public String dispaly10(Model model){ 
-	 List<LoginBean> list = dao.getList();
+	 public String dispaly10(Model model,HttpSession session){ 
+		 
+		 System.out.println("username  " + session.getAttribute("username"));	 
+	 
 	 List<SemesterBean> list1 = dao.getList1();
-	 System.out.println("list  " +
-			  list);
-	 System.out.println("list1  " +
-			  list1);
-	 model.addAttribute("list", list);
+	 System.out.println("list1  " + list1);
 	 model.addAttribute("list1", list1);
-
-	 	System.out.println("dddddddddd");
-	 	model.addAttribute("command",new LoginBean());
-	 	model.addAttribute("command",new SemesterBean());
-	 	return "marks";
+	 System.out.println("dddddddddd");
+	 model.addAttribute("command",new SemesterBean());
+	 return "marks";
+	 
 	 }
 
 }
