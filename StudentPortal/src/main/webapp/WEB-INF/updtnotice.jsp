@@ -1,31 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-	
-		<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+    pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
     
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-	
+
+<%@ page language="java" %>
+<%@ page import="java.util.regex.*" %>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content="html, css, html tables, table">
+    <meta name="Description" content="html table">
+    <!-- add icon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home Page</title>
+
+
+<title>UPDATE NOTICE BOARD</title>
 </head>
 <body>
-	
-
-
-<div id="loader">
-<img alt="" src="${pageContext.request.contextPath}/resources/image/loader.gif"></div>	
-<div id="content">
-	<nav>
+<nav>
 	<div class="login-main-text">
 		<h1>
 			Student Portal <img
@@ -33,87 +35,74 @@
 				height="50" width="50" class="img1" />
 			<ul>
 				<a href="File.jsp"><button class="btn btn-black">Home</button></a>
-				<a href="about"><button class="btn btn-black">About</button></a>
-				<a href="contact"><button class="btn btn-black">Contact
-						Us</button></a>
+				<a href="Admin"><button class="btn btn-black">Admin</button></a>
+				<a href="File.jsp"><button class="btn btn-black">Login</button></a>
 
 			</ul>
 		</h1>
 	</div>
 	</nav>
 
-	<div class="notice-con">
-		<div class="title">
-			<a href="notice">Notice </a>
+<h4>Admin Panel</h4>
+
+		<div class="sidebar">
+			<header>MENU</header>
+			<ul>
+				<li><a href="Admin"><i class="fas fa-qrcode"></i>STUDENT'S DATA</a></li>
+				<li><a href="marks"><i class="fas fa-link"></i>STUDENT MARKS</a></li>
+				<li><a href="#"><i class="fas fa-calendar-week"></i>UPDATE NOTICE</a></li>
+				<li><a href="logout"><i class="fas fa-calendar-week"></i>LOGOUT</a></li>
+			</ul>
 		</div>
-
-		<ul>
-			<li>Tomorrow there will be a holiday</li>
-
-
-			<li>New Admission's Form Fill-up is going on.</li>
-
-			<li>Reminder: The deadline for submitting your final project is
-				May 15th. Make sure to get it in on time!</li>
-			<li>Student Government Association (SGA) meeting will be held on
-				May 10th at 3pm in the Student Center. All are welcome to attend.</li>
-			<li>Graduation rehearsal will take place on May 20th at 10am in
-				the gymnasium. All graduating students are required to attend.</li>
-			<li>Campus Health Services will be offering free flu shots on
-				May 25th from 1pm to 4pm. Don't miss this opportunity to protect
-				yourself from the flu!</li>
-			<li>Attention all graduating seniors! The deadline to order your
-				cap and gown is May 10th. Don't miss out on this important
-				graduation tradition!</li>
-
-			<li>Attention Students! The library will be closed for
-				maintenance on May 5th. We apologize for any inconvenience.</li>
-
-			<li>Kindly, Do your Last Year Form Fillup.</li>
-			<li>The Career Services office will be hosting a job fair on
-				June 1st from 10am to 2pm in the Student Center. Dress
-				professionally and bring copies of your resume!</li>
-
-
-		</ul>
-	</div>
-
-
-
-
-
-	<div class="inner-area">
 		
 		
-		<img alt="" src="${pageContext.request.contextPath}/resources/image/school.jpg" class="img-school" >
 		
-		 <div class="inner-text">
-		<p>Step into the digital halls of knowledge and unlock the doors
-			to your academic progress! By logging in here, you'll gain access to
-			the virtual campus of your school website and be able to explore the
-			inner workings of your academic journey. Discover your exam details
-			and unearth the gems of your academic achievements from the comfort
-			of your own screen. Don't wait any longer, join the online community
-			of learners and embark on a journey of academic discovery.</p>
+<div class="main-notice">
+			<h3>PLEASE ADD THE NOTICES TO BE DISPLAYED :</h3>
+			<form:form name="myform2" action="save2" modelmethod="post" onsubmit="return validateform()">
+			Notice 1 :
+			<form:label path="notice"></form:label>
+			<form:input  path="notice" class="form-control" placeholder="Enter Notice - 1" />
+			Notice 2 :
+			<form:label path="notice2"></form:label>
+			<form:input  path="notice2" class="form-control" placeholder="Enter Notice - 2" />
+			Notice 3 :
+			<form:label path="notice3"></form:label>
+			<form:input  path="notice3" class="form-control" placeholder="Enter Notice - 3" />
+			Notice 4 :
+			<form:label path="notice4"></form:label>
+			<form:input  path="notice4" class="form-control" placeholder="Enter Notice - 4" />
+			Notice 5 :
+			<form:label path="notice5"></form:label>
+			<form:input  path="notice5" class="form-control" placeholder="Enter Notice - 5" />
+			Notice 6 :
+			<form:label path="notice6"></form:label>
+			<form:input  path="notice6" class="form-control" placeholder="Enter Notice - 6" />
+			Notice 7 :
+			<form:label path="notice7"></form:label>
+			<form:input  path="notice7" class="form-control" placeholder="Enter Notice - 7" />
+			Notice 8 :
+			<form:label path="notice8"></form:label>
+			<form:input  path="notice8" class="form-control" placeholder="Enter Notice - 8" />
+			Notice 9 :
+			<form:label path="notice9"></form:label>
+			<form:input  path="notice9" class="form-control" placeholder="Enter Notice - 9" />
+			Notice 10 :
+			<form:label path="notice10"></form:label>
+			<form:input  path="notice10" class="form-control" placeholder="Enter Notice - 10" />
 			
+			<input type="submit" value="Submit" class="btn btn-black"  >
+			
+			</form:form>
 			<br>
+			 
 			
-			<a href="Login"><button class="btn-red btn-black">Login</button></a>
-		</div>
-		
-		
-	
-	
-	</div>
-	<br>
+			<%-- <h5><u>To View Previous Notice's list</u> -  <a href="notice"><button class="btn btn-black">Click Here</button></a> <span class="sp"><u>To Delete Previous Notice's list</u> -  <a href="deletenotice/${e.id}"><button class="btn btn-black">Click Here</button></a> </span> </h5><br> --%>
+		    <h5><u>To View Previous Notice's list</u> -  <a href="notice"><button class="btn btn-black">Click Here</button></a> <span class="sp"><u>To Delete Previous Notice's list</u> -  <a href="deletenotice.html"><button class="btn btn-black">Click Here</button></a> </span> </h5><br>
+</div>
 
 
-
-
-
-
-
-	<footer class="footer">
+ <footer class="footer">
 
 	<ul class="social-icon">
 		<li class="social-icon__item"><a class="social-icon__link"
@@ -136,142 +125,135 @@
 
 	</ul>
 	<p>&copy;2023 Aditya Tripathy | All Rights Reserved</p>
-	</footer>
-</div>
+	</footer>  
+      
 </body>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<script type="text/javascript">
-window.onload=function(){
-	
-	document.getElementById('loader').style.display="none";
-	document.getElementById('content').style.display="block";
-
-}
-</script>
 <script type="module"
 	src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule
 	src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	
+<script type="text/javascript">
 
-<style>
+			
+			function validateform()
+			{
+				   alert("Notice Page  has been updated Successfully");
+	
+			}
+		</script>
+ <style>
+ 
+ 
+ .sp{
+ margin-left:30px;
+ }
+ p{
+ color: black;
+ }
+ .form-control{
+ padding:5px ;
+ width:60%;
+ margin-bottom:20px;
+ }
+ .main-notice{
+ margin-left:18%;
+ }
+.main-notice h3{
+margin-left:0;
+}
+h4{
+ border-radius:7px;
+ margin-top:8px;
+ color:white;
+ margin-left:6px;
+ margin-right:89%;
+ background:#383d52;
+ font-weight:700;
+ }
 
-.inner-area
-{
-position:relative;
+h3{
+font-weight:600;
+padding:10px;
+margin-left:25%;
+
+}
+ 
+table{
+margin-left:268px;
 }
 
-.inner-area img{
-border-radius:12px;
-width: 100%;
-height: 750px;
+.sidebar {
+	margin:5px;
+    position:fixed;
+	border-radius:12px;
+	left: 0;
+	width: 260px;
+	height: 45%;
+	background: black;  /* #042331 */
 }
-.inner-text{
-position:absolute;
-top:0;
-color:#fff;
-padding:20px;
-margin-top:24%;
+.sidebar ul{
+text-decoration: none;
+list-style: none; 
 }
-
-.inner-text p{
-font-weight:bold;
-text-shadow:1px -1px black, -1px 2px 1px black, -2px 4px 1px black;
-font-size:20px;
-text-transform:uppercase;
-}
-
-.inner-text button{
-font-weight:bold;
-font-size:20px;
+.sidebar header {
+	
+	font-size: 22px;
+	color: white;
+	text-align: center;
+	line-height: 70px;
+	background: #063146;
+    user-select: none;
 }
 
-
-
-#loader{
-position:absolute;
-margin: auto;
-top: 0;
-right: 0;
-bottom: 0;
-left: 0;
-width: 150px;
-height: 150px;
+.sidebar ul a {
+	text-decoration: none;
+    list-style: none; 
+	display: block;
+	height: 100%;
+	width: 100%;
+	line-height: 50px;
+	font-size: 20px;
+	color: white;
+	padding-left: 5px;
+	box-sizing: border-box;
+	border-top: 1px solid rgba(255, 255, 255, .1);
+	border-bottom: 1px solid black;
+	transition: .4s;
 }
-#loader img{
-border-radius:35px;
-width: 150px;
+
+.sidebar ul li:hover a {
+	background-color: green;
+	padding-left: 25px;
+}
+
+ .sidebar ul a i {
+ 	
+	margin-right: 16px;
+}	
+
+
+
+
+.sidenav {
+	height: 100%;
+	width: 50%;
+	background-color: #000;
+	overflow-x: hidden;
+	padding-top: 10px;
 }
 
 a {
 	color: white;
 }
 
-.notice-con {
-	overflow: hidden;
-	position: relative;
-	top: 0;
-	left: 0;
-	right: 0;
-	font-family: "Roboto", sans-serif;
-	box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.3);
-}
 
-.notice-con .title {
-	border-radius: 25px;
-	position: absolute;
-	background: #df2020;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	padding: 0 24px;
-	color: white;
-	font-weight: bold;
-	z-index: 200;
-}
-
-.notice-con ul {
-	display: flex;
-	list-style: none;
-	margin: 0;
-	animation: scroll 54s infinite linear;
-}
-
-.notice-con ul li {
-	white-space: nowrap;
-	padding: 10px 24px;
-	color: #494949;
-	position: relative;
-}
-
-.notice-con ul li::after {
-	content: "";
-	width: 1px;
-	height: 100%;
-	background: #b8b8b8;
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
-.notice-con ul li:last-child::after {
-	display: none;
-}
-
-@keyframes scroll {
-from { 
-
-transform:translateX(100%);
-	
-}
-
-to {
-
-	transform: translateX(-7557px);
-	
-}
-
-}
 .footer {
+	margin-top:5%;
 	border-radius: 25px;
 	position: relative;
 	width: 100%;
@@ -294,6 +276,7 @@ to {
 }
 
 .social-icon__item, .menu__item {
+	
 	list-style: none;
 }
 
@@ -395,10 +378,10 @@ background-positon-x:0px;
 }
 
 .btn-red {
-		
 	margin-left: 45%;
-
-	}
+	border-radius: 8px;
+	background-color: black;
+}
 
 .half-area {
 	align-items: center;
@@ -451,17 +434,17 @@ p {
 }
 
 @media screen and (max-height: 450px) {
+	.login-main-text{
+	 
+	}
+	
+	
 	.sidenav {
 		padding-top: 15px;
 	}
 }
 
 @media screen and (max-width: 450px) {
-	.login-main-text{
-	 float: right;
-    display: block;
-	}
-	
 	.half-area {
 		margin-right: 10%;
 	}
@@ -502,6 +485,8 @@ p {
 }
 
 .btn-black {
+
+	padding:6px;
 	border-radius: 9px;
 	background-color: #000 !important;
 	color: #fff;
@@ -549,27 +534,17 @@ nav ul li a:active, nav ul li a:hover {
 	transition: .5s;
 }
 
-nav a:active, nav a:hover {
+
+ a:active, a:hover {
 	border-radius: 15px;
-	background: white;
 	transition: .5s;
-}
-footer a:active, footer a:hover {
-	border-radius: 15px;
 	background: white;
-	transition: .5s;
 }
 
-button {
-	background-color: black;
-	color: #fff;
-	height: 30px;
-	width: 100px;
-}
 
 body {
-		font-family: "Lato", sans-serif;
+	font-family: "Lato", sans-serif;
 }
-</style>
-
+ 
+ </style>
 </html>

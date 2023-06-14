@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+    
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -32,11 +35,11 @@
 	
 	<div class="not">
 	<ul>
-	<li>Tomorrow there will be a holiday</li>	
 	
 	
+	
+	<!-- <li>Tomorrow there will be a holiday</li>	
 	<li>New Admission's Form Fill-up is going on.</li>
-	
 	<li> Reminder: The deadline for submitting your final project is May 15th. Make sure to get it in on time! </li>
 	<li> Student Government Association (SGA) meeting will be held on May 10th at 3pm in the Student Center. All are welcome to attend. </li>
 	<li>Graduation rehearsal will take place on May 20th at 10am in the gymnasium. All graduating students are required to attend.  </li>
@@ -47,7 +50,20 @@
 	
 	<li>Kindly,  Do your Last Year Form Fillup.</li>
 	<li> The Career Services office will be hosting a job fair on June 1st from 10am to 2pm in the Student Center. Dress professionally and bring copies of your resume! </li>
+	 -->
 	
+	 <c:forEach  var="e" items="${list}">
+	 <li>${e.notice}</li>
+	 <li>${e.notice2}</li>
+	 <li>${e.notice3}</li>
+	 <li>${e.notice4}</li>
+	 <li>${e.notice5}</li>
+	 <li>${e.notice6}</li>
+	 <li>${e.notice7}</li>
+	 <li>${e.notice8}</li>
+	 <li>${e.notice9}</li>
+	 <li>${e.notice10}</li>
+	 </c:forEach>
 	
 	</ul>
 	</div>

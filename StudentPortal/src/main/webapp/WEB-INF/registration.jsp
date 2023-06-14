@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" %>
@@ -29,17 +29,19 @@
          <div class="col-md-6 col-sm-12">
             <div class="login-form">
                
-		<center>
-		<button type="button" name="back" class="btn btn-black" onclick="history.back()">Back</button>
-		<a href="Login"><button class="btn btn-black">Login</button></a>
-	</center><br><br>
+	
+		<a href="javascript:window.history.back();"><button class="btn btn-black">Back</button></a>
+		
+	
 	<div class="main">
 	
 	
-	
-		<form:form name="myform" action="save" modelmethod="post" onsubmit="return validateform()">
+		<a href="javascript:window.history.back();"><button class="btn btn-black">Back</button></a><br><br>
 		
+		<form:form name="myform" action="save" modelmethod="post" >
 		
+			
+			
 			Username :
 			<form:label path="Username"></form:label>
 			<form:input path="Username" class="form-control" placeholder="Enter Username" required="true"/>
@@ -139,8 +141,112 @@
 			<br>
 
 			City :
-			<form:label path="City"></form:label>
-			<form:input path="City" class="form-control" placeholder="Enter City" required="true"/>
+			<form:select path="city" >
+		    <option value="Select City">Select City</option>
+		    <option value="Agra">Agra</option>
+		    <option value="Ahmedabad">Ahmedabad</option>
+		    <option value="Ajmer">Ajmer</option>
+		    <option value="Aligarh">Aligarh</option>
+		    <option value="Allahabad">Allahabad</option>
+		    <option value="Amravati">Amravati</option>
+		    <option value="Amritsar">Amritsar</option>
+		    <option value="Asansol">Asansol</option>
+		    <option value="Aurangabad">Aurangabad</option>
+		    <option value="Bangalore">Bangalore</option>
+		    <option value="Bareilly">Bareilly</option>
+		    <option value="Belgaum">Belgaum</option>
+		    <option value="Bhavnagar">Bhavnagar</option>
+		    <option value="Bhiwandi">Bhiwandi</option>
+		    <option value="Bhopal">Bhopal</option>
+		    <option value="Bhubaneswar">Bhubaneswar</option>
+		    <option value="Bikaner">Bikaner</option>
+		    <option value="Bokaro Steel City">Bokaro Steel City</option>
+		    <option value="Chandigarh">Chandigarh</option>
+		    <option value="Chennai">Chennai</option>
+		    <option value="Coimbatore">Coimbatore</option>
+		    <option value="Cuttack">Cuttack</option>
+		    <option value="Dehradun">Dehradun</option>
+		    <option value="Delhi">Delhi</option>
+		    <option value="Dhanbad">Dhanbad</option>
+		    <option value="Durgapur">Durgapur</option>
+		    <option value="Faridabad">Faridabad</option>
+		    <option value="Firozabad">Firozabad</option>
+		    <option value="Ghaziabad">Ghaziabad</option>
+		    <option value="Gorakhpur">Gorakhpur</option>
+		    <option value="Gulbarga">Gulbarga</option>
+		    <option value="Guntur">Guntur</option>
+		    <option value="Gurgaon">Gurgaon</option>
+		    <option value="Guwahati">Guwahati</option>
+		    <option value="Gwalior">Gwalior</option>
+		    <option value="Howrah">Howrah</option>
+		    <option value="Hubli-Dharwad">Hubli-Dharwad</option>
+		    <option value="Hyderabad">Hyderabad</option>
+		    <option value="Indore">Indore</option>
+		    <option value="Jabalpur">Jabalpur</option>
+		    <option value="Jaipur">Jaipur</option>
+		    <option value="Jalandhar">Jalandhar</option>
+		    <option value="Jammu">Jammu</option>
+		    <option value="Jamnagar">Jamnagar</option>
+		    <option value="Jamshedpur">Jamshedpur</option>
+		    <option value="Jhansi">Jhansi</option>
+		    <option value="Jodhpur">Jodhpur</option>
+		    <option value="Kakinada">Kakinada</option>
+		    <option value="Kannur">Kannur</option>
+		    <option value="Kanpur">Kanpur</option>
+		    <option value="Karnal">Karnal</option>
+		    <option value="Kochi">Kochi</option>
+		    <option value="Kolhapur">Kolhapur</option>
+		    <option value="Kolkata">Kolkata</option>
+		    <option value="Kollam">Kollam</option>
+		    <option value="Kota">Kota</option>
+		    <option value="Kozhikode">Kozhikode</option>
+		    <option value="Kurnool">Kurnool</option>
+		    <option value="Lucknow">Lucknow</option>
+		    <option value="Ludhiana">Ludhiana</option>
+		    <option value="Madurai">Madurai</option>
+		    <option value="Malappuram">Malappuram</option>
+		    <option value="Mathura">Mathura</option>
+		    <option value="Meerut">Meerut</option>
+		    <option value="Moradabad">Moradabad</option>
+		    <option value="Mumbai">Mumbai</option>
+		    <option value="Muzaffarnagar">Muzaffarnagar</option>
+		    <option value="Muzaffarpur">Muzaffarpur</option>
+		    <option value="Mysore">Mysore</option>
+		    <option value="Nagpur">Nagpur</option>
+		    <option value="Nanded">Nanded</option>
+		    <option value="Nashik">Nashik</option>
+		    <option value="Nellore">Nellore</option>
+		    <option value="Noida">Noida</option>
+		    <option value="Palakkad">Palakkad</option>
+		    <option value="Patna">Patna</option>
+		    <option value="Pondicherry">Pondicherry</option>
+		    <option value="Pune">Pune</option>
+		    <option value="Raipur">Raipur</option>
+		    <option value="Rajahmundry">Rajahmundry</option>
+		    <option value="Rajkot">Rajkot</option>
+		    <option value="Ranchi">Ranchi</option>
+		    <option value="Rourkela">Rourkela</option>
+		    <option value="Salem">Salem</option>
+		    <option value="Sangli">Sangli</option>
+		    <option value="Siliguri">Siliguri</option>
+		    <option value="Solapur">Solapur</option>
+		    <option value="Srinagar">Srinagar</option>
+		    <option value="Surat">Surat</option>
+		    <option value="Thane">Thane</option>
+		    <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+		    <option value="Thrissur">Thrissur</option>
+		    <option value="Tiruchirappalli">Tiruchirappalli</option>
+		    <option value="Tirunelveli">Tirunelveli</option>
+		    <option value="Tirupati">Tirupati</option>
+		    <option value="Tiruppur">Tiruppur</option>
+		    <option value="Ujjain">Ujjain</option>
+		    <option value="Vadodara">Vadodara</option>
+		    <option value="Varanasi">Varanasi</option>
+		    <option value="Vasai-Virar">Vasai-Virar</option>
+		    <option value="Vijayawada">Vijayawada</option>
+		    <option value="Visakhapatnam">Visakhapatnam</option>
+		    <option value="Warangal">Warangal</option>
+		     </form:select>
 			<br>
 			<br>
 				
@@ -161,28 +267,55 @@
 			<br>
 
 
-			<input type="submit" value="Submit" class="btn btn-black"  >
+			<input type="submit" value="Submit" class="btn btn-black" onclick="validateform()" >
 			
 	</form:form>
 	
-   <h3>AFTER SUBMISSION - ENTER ALL THE SUBJECT DETAILS HERE  - <a href="Semester"><button class="btn btn-black">Click Here</button></a></h3>
-	
+<!--    <h3>AFTER SUBMISSION - ENTER ALL THE SUBJECT DETAILS HERE  - <a href="Semester"><button class="btn btn-black">Click Here</button></a></h3>
+ -->	<br><br><a href="Login"><button class="btn btn-black">Login</button></a>
 	</div><br>
 
             </div>
          </div>
       </div>
-	
+      				
+      
+		<footer class="footer">
+
+	<ul class="social-icon">
+		<li class="social-icon__item"><a class="social-icon__link"
+			href="#"> <ion-icon name="logo-facebook"></ion-icon>
+		</a></li>
+		<li class="social-icon__item"><a class="social-icon__link"
+			href="#"> <ion-icon name="logo-twitter"></ion-icon>
+		</a></li>
+		<li class="social-icon__item"><a class="social-icon__link"
+			href="#"> <ion-icon name="logo-linkedin"></ion-icon>
+		</a></li>
+		<li class="social-icon__item"><a class="social-icon__link"
+			href="#"> <ion-icon name="logo-instagram"></ion-icon>
+		</a></li>
+	</ul>
+	<ul class="menu">
+		<li class="menu__item"><a class="menu__link" href="File.jsp">Home</a></li>
+		<li class="menu__item"><a class="menu__link" href="about">About</a></li>
+		<li class="menu__item"><a class="menu__link" href="contact">Contact</a></li>
+
+	</ul>
+	<p>&copy;2023 Aditya Tripathy | All Rights Reserved</p>
+	</footer>
 </body>
 	<script type="text/javascript">
 
 			
 			function validateform()
 			{
-				   alert("Form has been submitted Successfully, Now click on Subect Detail's Section below");
+				   alert("Information has been submitted Successfully, Now click on ---Login Button---");
 	
 			}
 		</script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 <style>
 
@@ -190,17 +323,25 @@ p{
 font-size: 25px;
 }
 button{
-margin-right: 230px;
+margin-right: 50px;
 }
 	
-.btn-black{
-    background-color: #000 !important;
-    color: #fff;
-    }
+.btn-black {
+
+	padding:6px;
+	border-radius: 9px;
+	background-color: #000 !important;
+	color: #fff;
+}
 body{
 font-family: "Lato", sans-serif;
 }
-
+.form-control{
+ border-radius:12px;
+ padding:5px ;
+ width:35%;
+ margin-bottom:10px;
+ }
 .main-head{
     height: 150px;
     background: #FFF;
@@ -247,11 +388,11 @@ font-family: "Lato", sans-serif;
     }
 
     .login-form{
-        margin-top: 3%;
+        margin-top: 10px;
     }
 
     .register-form{
-        margin-top: 20%;
+        margin-top: 5px;
     }
 }
 
@@ -265,6 +406,94 @@ font-family: "Lato", sans-serif;
 .login-main-text h2{
     font-weight: 300;
 }
+
+.footer {
+	border-radius:12px;
+    margin-left:40%;
+	position: relative;
+	width: 53%;
+	background: black; /*  #3586ff */
+	min-height: 100px;
+	padding: 20px 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.social-icon, .menu {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 10px 0;
+	flex-wrap: wrap;
+}
+
+.social-icon__item, .menu__item {
+	list-style: none;
+}
+
+.social-icon__link {
+	font-size: 2rem;
+	color: #fff;
+	margin: 0 10px;
+	display: inline-block;
+	transition: 0.5s;
+}
+
+.social-icon__link:hover {
+	transform: translateY(-10px);
+}
+
+.menu__link {
+	font-size: 1.2rem;
+	color: #fff;
+	margin: 0 10px;
+	display: inline-block;
+	transition: 0.5s;
+	text-decoration: none;
+	opacity: 0.75;
+	font-weight: 300;
+}
+
+.menu__link:hover {
+	opacity: 1;
+}
+
+.footer p {
+	color: #fff;
+	margin: 15px 0 10px 0;
+	font-size: 1rem;
+	font-weight: 300;
+}
+
+
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+footer a:active, footer a:hover {
+	border-radius: 15px;
+	background: blue;
+	transition: .5s;
+}
+
 
 </style>
 </html>

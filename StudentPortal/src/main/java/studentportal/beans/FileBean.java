@@ -1,4 +1,4 @@
-package gyana.beans;
+package studentportal.beans;
 
 public class FileBean {
 	

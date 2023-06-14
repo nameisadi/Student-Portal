@@ -43,7 +43,7 @@
 					onsubmit="return validateform()" autocomplete="off">
 					<div class="form-group">
 						<p>Enter Your Login Details Here </p>
-						<label>User Name</label>
+						<label>Username</label>
 						<form:input path="username" class="form-control"
 							placeholder="Enter Username Here" required="true" />
 					</div>
@@ -162,9 +162,11 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 <style>
+
 body {
 	font-family: "Lato", sans-serif;
 }
+
 .btn-h{
     margin-left:42%;
 }
@@ -172,9 +174,7 @@ p{
 font-weight:600;
 font-size: 24px;
 }
-button{
-margin-right:50px;
-}
+
 
 .main-head {
 	height: 150px;
@@ -353,8 +353,9 @@ margin-right:50px;
 }
 
 .btn-black {
-	background-color: #000 !important;
-	color: #fff;
+		border-radius:9px;
+		background-color: #000 !important;
+		color: #fff;
 }
 </style>
 </html>

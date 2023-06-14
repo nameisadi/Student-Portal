@@ -37,10 +37,9 @@
 		<div class="sidebar">
 			<header>MENU</header>
 			<ul>
-				<li><a href="Admin"><i class="fas fa-qrcode"></i>STUDENT PROFILE DATA</a></li>
-				<li><a href="marks"><i class="fas fa-link"></i>STUDENT MARKS</a></li>
-				<li><a href="#"><i class="fas fa-stream"></i>DELETE STUDENT</a></li>
-				<li><a href="#"><i class="fas fa-calendar-week"></i>UPDATE NOTICE BOARD</a></li>
+				<li><a href="Admin"><i class="fas fa-qrcode"></i>STUDENT'S DATA</a></li>
+				<li><a href="#"><i class="fas fa-link"></i>STUDENT MARKS</a></li>
+				<li><a href="updtnotice"><i class="fas fa-calendar-week"></i>UPDATE NOTICE</a></li>
 				<li><a href="logout"><i class="fas fa-calendar-week"></i>LOGOUT</a></li>
 			</ul>
 		</div>
@@ -49,33 +48,41 @@
 
 		
 
-    
+    <h5><u>TO INSERT MARK OF THE STUDENTS THROUGH THERE ID  </u> - <a href="insertmark"><button class="btn btn-black"> Click Here</button></a> </h5><br>
+
  <h3> All STUDENT'S MARKS SHOWN BELOW:</h3>
     
                   
-<TABLE align="center" width="25%" cellpadding="3" BORDER="3">
+<TABLE align="center" width="20%" cellpadding="3" BORDER="10">
   <thead>
   <tr>
   	<th>ID</th>
-    <th>Roll</th>
-    <th>English</th>
-    <th>Math</th>
-    <th>Computer</th>
-    <th>Social</th>
-    <th>Mark Obtained</th>
-    <th>Maximum Marks</th>
+ <!--  	<th>USERNAME</th> -->
+    <th>ROLL</th>
+    <th>ENGLISH</th>
+    <th>MATH</th>
+    <th>COMPUTER</th>
+    <th>SOCIAL SCIENCE</th>
+    <th>MARK OBTAINED</th>
+    <th>MAXIMUM MARKS</th>
+    <th>EDIT</th>
+	<th>DELETE</th>
+		
   </tr>
   </thead>
   <tbody>
-  <c:forEach var="e" items="${list1}">   
+  <c:forEach var="e" items="${list1}" >   
 	   <tr>  <td>${e.id}</td>
+	   		
 		  	<td>${e.roll}</td>
 		   <td>${e.english}</td>  
 		   <td>${e.math}</td>  
 		   <td>${e.computer}</td>  
 		   <td>${e.social}</td>  
 		   <td>${e.markobt}</td>  
-		   <td>${e.maxmark}</td>  
+		   <td>${e.maxmark}</td> 
+		   <td><a class="edit-tab" href="editmark.html?id=${e.id}">Edit</a></td>  
+   		   <td><a class="edit-tab" href="deletemark.html?id=${e.id}">Delete</a></td>  
 	   </tr>  
 	   </c:forEach>  
 	   </tbody>
@@ -117,6 +124,15 @@
 
  <style>
  
+ h5{
+ margin-left: 19%;
+ font-weight:700;
+ }
+.edit-tab{
+border-radius:9px;
+background:black;
+}
+
 h4{
  border-radius:7px;
  margin-top:8px;
@@ -126,15 +142,16 @@ h4{
  background:#383d52;
  font-weight:700;
  }
+
 h3{
 font-weight:600;
 padding:10px;
-margin-left:25%;
+margin-left:18%;
 
 }
  
 table{
-margin-left:25%;
+margin-left:268px;
 }
 
 .sidebar {
@@ -142,8 +159,8 @@ margin-left:25%;
     position:fixed;
 	border-radius:12px;
 	left: 0;
-	width: 350px;
-	height: 60%;
+	width: 260px;
+	height: 45%;
 	background: black;  /* #042331 */
 }
 .sidebar ul{
@@ -169,7 +186,7 @@ list-style: none;
 	line-height: 50px;
 	font-size: 20px;
 	color: white;
-	padding-left: 40px;
+	padding-left: 5px;
 	box-sizing: border-box;
 	border-top: 1px solid rgba(255, 255, 255, .1);
 	border-bottom: 1px solid black;
@@ -178,7 +195,7 @@ list-style: none;
 
 .sidebar ul li:hover a {
 	background-color: green;
-	padding-left: 50px;
+	padding-left: 25px;
 }
 
  .sidebar ul a i {
@@ -203,7 +220,7 @@ a {
 
 
 .footer {
-	margin-top:22%;
+	margin-top:12%;
 	border-radius: 25px;
 	position: relative;
 	width: 100%;
@@ -435,6 +452,9 @@ p {
 }
 
 .btn-black {
+	
+	width: 100px;
+	padding:5px;
 	border-radius: 9px;
 	background-color: #000 !important;
 	color: #fff;
@@ -489,12 +509,7 @@ nav ul li a:active, nav ul li a:hover {
 	background: white;
 }
 
-button {
-	background-color: black;
-	color: #fff;
-	height: 30px;
-	width: 100px;
-}
+
 
 body {
 	font-family: "Lato", sans-serif;

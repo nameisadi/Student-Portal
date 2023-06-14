@@ -12,7 +12,7 @@
 		
 		
 	<context:component-scan
-		base-package="gyana.*" />
+		base-package="studentportal.*" />
 	
    <bean id="viewResolver"
     class="org.springframework.web.servlet.view.UrlBasedViewResolver">
@@ -40,7 +40,7 @@
 <property name="dataSource" ref="ds"></property>    
 </bean>    
     
-<bean id="ldao" class="gyana.dao.LoginDao">    
+<bean id="ldao" class="studentportal.dao.LoginDao">    
 <property name="jdbcTemplate" ref="jdbcTemplate"></property>  
   
 </bean>

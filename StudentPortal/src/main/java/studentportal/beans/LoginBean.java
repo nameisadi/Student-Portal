@@ -1,4 +1,4 @@
-package gyana.beans;
+package studentportal.beans;
 
 public class LoginBean {
 	 private String username;
@@ -102,11 +102,14 @@ public class LoginBean {
 	public void setCaptcha(String captcha) {
 		this.captcha = captcha;
 	}
-	
 	@Override
-	public String toString(){
-		return"LoginBean[username="+username+",password="+password+"]";
+	public String toString() {
+		return "LoginBean [username=" + username + ", password=" + password + ", captcha=" + captcha + ", Name=" + Name
+				+ ", Mobile=" + Mobile + ", Address=" + Address + ", Gender=" + Gender + ", F_name=" + F_name
+				+ ", Date_B=" + Date_B + ", Email=" + Email + ", State=" + State + ", Dist=" + Dist + ", City=" + City
+				+ ", id=" + id + "]";
 	}
+	
 	
 
 	

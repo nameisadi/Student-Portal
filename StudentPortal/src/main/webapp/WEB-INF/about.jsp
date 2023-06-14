@@ -31,20 +31,31 @@
 
 	</nav>
 			
-				<div class="half-area">
+				
 				<br><br><br>
 									<h2 data-text="About Us">A<u>bout U</u>s</h2><br>
 				
-				 <img
-				src="${pageContext.request.contextPath}/resources/image/online.png"
-				height="300" width="550" class="img" />
-				<p>The "Student Portal" project is a comprehensive platform designed to streamline the management of exams and academic activities for students. The portal allows students to log in and access all their course materials, including lecture notes, assignments, and announcements.</p>
-               	<p >Step into the digital halls of knowledge and unlock the doors to your academic progress! By logging in here, you'll gain access to the virtual campus of your school website and be able to explore the inner workings of your academic journey. Discover your exam details and unearth the gems of your academic achievements from the comfort of your own screen. Don't wait any longer, join the online community of learners and embark on a journey of academic discovery.</p>
-                    
-                    <p>The exam management system is a key feature of the portal, which enables students to view their exam schedules, submit online assignments, and receive their exam results. The system also provides real-time updates on exam dates, changes, and any other important announcements related to the exams.</p>
-      				<p>The portal is user-friendly and easy to navigate, making it simple for students to access the information they need. It is also highly secure, with password-protected access and advanced security protocols in place to safeguard student data.</p>
-      				<br>
-      				</div><br><br>
+				
+				
+				
+				<div class="inner-area">
+		
+		
+		<img alt="" src="${pageContext.request.contextPath}/resources/image/back.jpg" class="img-school" >
+		
+		 <div class="inner-text">
+		<p>The "Student Portal" project is a comprehensive platform designed to streamline the management of exams and academic activities for students. The portal allows students to log in and access all their course materials, including lecture notes, assignments, and announcements.</p>
+	    <p >Step into the digital halls of knowledge and unlock the doors to your academic progress! By logging in here, you'll gain access to the virtual campus of your school website and be able to explore the inner workings of your academic journey. Discover your exam details and unearth the gems of your academic achievements from the comfort of your own screen. Don't wait any longer, join the online community of learners and embark on a journey of academic discovery.</p>
+        <p>The exam management system is a key feature of the portal, which enables students to view their exam schedules, submit online assignments, and receive their exam results. The system also provides real-time updates on exam dates, changes, and any other important announcements related to the exams.</p>
+      	<p>The portal is user-friendly and easy to navigate, making it simple for students to access the information they need. It is also highly secure, with password-protected access and advanced security protocols in place to safeguard student data.</p>
+		</div>
+		
+		
+	
+	
+	</div>
+	<br>
+				
       				
       				  				
     <footer class="footer">
@@ -85,6 +96,35 @@ window.onload=function(){
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 <style>
+
+.inner-area
+{
+position:relative;
+}
+
+.inner-area img{
+padding:10px;
+border-radius:25px;
+width: 100%;
+height: 90rem;
+}
+.inner-text{
+margin-top:15%;
+position:absolute;
+top:0;
+color:#fff;
+padding:20px;
+
+}
+
+.inner-text p{
+font-weight:700;
+color:white;
+text-shadow:1px -1px black, -1px 2px 1px black, -2px 4px 1px black, -3px 6px 1px black	;
+font-size:20px;
+text-transform:uppercase;
+
+}
 
 #loader{
 position:absolute;

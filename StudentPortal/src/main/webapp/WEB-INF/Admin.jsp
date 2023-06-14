@@ -48,10 +48,9 @@
 		<div class="sidebar">
 			<header>MENU</header>
 			<ul>
-				<li><a href="Admin"><i class="fas fa-qrcode"></i>STUDENT PROFILE DATA</a></li>
-				<li><a href="marks"><i class="fas fa-link"></i>STUDENT MARKS</a></li>
-				<li><a href="#"><i class="fas fa-stream"></i>DELETE STUDENT</a></li>
-				<li><a href="#"><i class="fas fa-calendar-week"></i>UPDATE NOTICE BOARD</a></li>
+				<li><a href="#"><i class="fas fa-qrcode"></i>STUDENT'S DATA</a></li>
+				<li><a href="marks"><i class="fas fa-link"></i>STUDENT'S MARKS</a></li>
+				<li><a href="updtnotice"><i class="fas fa-calendar-week"></i>UPDATE NOTICE</a></li>
 				<li><a href="logout"><i class="fas fa-calendar-week"></i>LOGOUT</a></li>
 			</ul>
 		</div>
@@ -63,7 +62,7 @@
 				 <h3> All STUDENT'S DATA SHOWN BELOW:</h3>
 				
  
-                <TABLE align="center" width="25%" cellpadding="3" BORDER="3">
+                <TABLE align="center" width="20%" cellpadding="3" BORDER="10">
                 
 <tr>
 		<th>ID</th>
@@ -78,6 +77,9 @@
 		<th>STATE</th>
 		<th>DISTRICT</th>
 		<th>CITY</th>
+		<th>PASSWORD</th>
+		<th>EDIT</th>
+		<th>DELETE</th>
 		
 		   </tr>
     <c:forEach var="e" items="${list}">
@@ -96,6 +98,9 @@
         <td>${e.state}</td>
         <td>${e.dist}</td>
         <td>${e.city}</td>
+        <td>${e.password}</td>
+        <td><a class="edit-tab" href="editstud.html?id=${e.id}">Edit</a></td>  
+   		<td><a class="edit-tab" href="deletestud.html?id=${e.id}">Delete</a></td>  
         
                  
      </tr>
@@ -168,6 +173,10 @@
 	src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
  <style>
+.edit-tab{
+border-radius:9px;
+background:black;
+}
 
 h4{
  border-radius:7px;
@@ -187,7 +196,7 @@ margin-left:25%;
 }
  
 table{
-margin-left:25%;
+margin-left:268px;
 }
 
 .sidebar {
@@ -195,8 +204,8 @@ margin-left:25%;
     position:fixed;
 	border-radius:12px;
 	left: 0;
-	width: 350px;
-	height: 60%;
+	width: 260px;
+	height: 45%;	
 	background: black;  /* #042331 */
 }
 .sidebar ul{
@@ -222,7 +231,7 @@ list-style: none;
 	line-height: 50px;
 	font-size: 20px;
 	color: white;
-	padding-left: 40px;
+	padding-left: 5px;
 	box-sizing: border-box;
 	border-top: 1px solid rgba(255, 255, 255, .1);
 	border-bottom: 1px solid black;
@@ -231,7 +240,7 @@ list-style: none;
 
 .sidebar ul li:hover a {
 	background-color: green;
-	padding-left: 50px;
+	padding-left: 25px;
 }
 
  .sidebar ul a i {

@@ -15,11 +15,11 @@
 </head>
 <body>
   <br><br><br>
-    <center><c:out value="${msg}"></c:out><br><br>
+    <center> <h2> <c:out value="${msg}"></c:out></h2>/<br>
     
     
     
-    <img src="${pageContext.request.contextPath}/resources/image/error.png" height="500px" width="80%" class="img12" /><br><br>
+    <img src="${pageContext.request.contextPath}/resources/image/err.png" height="400px" width="75%" class="img12" /><br><br>
                             
     			<button type="button" name="back" class="btn-black" onclick="history.back()">Back</button>
     
@@ -28,10 +28,12 @@
   <br><br>
 </body>
 <style>
-		.btn-black
-  		{
- 		background-color: #000 !important;
-    	color: #fff;
-    	}
+	.btn-black {
+	padding:8px;
+	font-size:20px;
+	border-radius: 9px;
+	background-color: #000 !important;
+	color: #fff;
+}
 </style>
 </html>

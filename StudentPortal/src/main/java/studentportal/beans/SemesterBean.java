@@ -1,4 +1,4 @@
-package gyana.beans;
+package studentportal.beans;
 
 public class SemesterBean {
 	 public String getRoll() {
@@ -44,14 +44,19 @@ public class SemesterBean {
 	public void setMaxmark(String maxmark) {
 		this.maxmark = maxmark;
 	}
-	 public String getId() {
+	
+
+
+	
+	 public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-	
-	 private String id;
+
+
+	 private int id;
 	 private String markobt;
 	 private String maxmark;
 	 private String roll;
