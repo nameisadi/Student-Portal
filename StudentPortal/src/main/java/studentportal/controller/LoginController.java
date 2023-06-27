@@ -9,11 +9,13 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.print.DocFlavor.READER;
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -83,8 +85,6 @@ public class LoginController {
 		return "updt";
 	}
 
-	
-
 	@RequestMapping(value = "/updtsem", method = RequestMethod.GET)
 
 	public String display5(Model model) {
@@ -111,8 +111,6 @@ public class LoginController {
 		return "registration";
 	}
 
-	
-	
 	@RequestMapping(value = "/save2", method = RequestMethod.POST)
 
 	public String display3(@ModelAttribute("lb") NoticeBean bean, Model model) {
@@ -121,8 +119,7 @@ public class LoginController {
 		int i = dao.insertquery3(bean);
 		return "updtnotice";
 	}
-	
-	
+
 	/*
 	 * @RequestMapping(value = "/insertmark", method = RequestMethod.GET)
 	 * 
@@ -137,6 +134,7 @@ public class LoginController {
 		model.addAttribute("command", new SemesterBean());
 		return "insertmark";
 	}
+
 	@RequestMapping(value = "/save4", method = RequestMethod.POST)
 
 	public String display17(@ModelAttribute("lb") SemesterBean bean, Model model) {
@@ -145,6 +143,7 @@ public class LoginController {
 		int i = dao.insertquery1(bean);
 		return "insertmark";
 	}
+
 	@RequestMapping(value = "/notdel", method = RequestMethod.GET)
 
 	public String display20(@ModelAttribute("lb") NoticeBean bean, Model model) {
@@ -152,39 +151,37 @@ public class LoginController {
 		model.addAttribute("command", new NoticeBean());
 		return "notdel";
 	}
+
 	@RequestMapping(value = "/deletenotice.html", method = RequestMethod.GET)
-	
-	 public String display15(){  
+
+	public String display15() {
 		System.out.println("Notice list Deleted.");
-		int i = dao.deletequery();  
-        return "redirect:/notdel";    
-    }  
-	
+		int i = dao.deletequery();
+		return "redirect:/notdel";
+	}
+
 	@RequestMapping(value = "/deletestud", method = RequestMethod.GET)
 
-	
-	 public String display16(@RequestParam int id){  
-		System.out.println("Delete Student : "+ id );
-		int i = dao.deletequery2(id);  
-        return "redirect:/Admin";    
-    } 
-	
+	public String display16(@RequestParam int id) {
+		System.out.println("Delete Student : " + id);
+		int i = dao.deletequery2(id);
+		return "redirect:/Admin";
+	}
+
 	@RequestMapping(value = "/deletemark", method = RequestMethod.GET)
 
-	
-	 public String display17(@RequestParam int id){  
-		System.out.println("Delete Mark : "+ id );
-		int i = dao.deletequery3(id);  
-       return "redirect:/marks";    
-   } 
-	
+	public String display17(@RequestParam int id) {
+		System.out.println("Delete Mark : " + id);
+		int i = dao.deletequery3(id);
+		return "redirect:/marks";
+	}
 
 	@RequestMapping(value = "/log", method = RequestMethod.POST)
-	public String save(@ModelAttribute("lb") LoginBean bean, BindingResult result, Model model, HttpSession session,
+	public String save(@ModelAttribute("lb") LoginBean bean, BindingResult result, Model model, HttpSession session, HttpServletRequest request,
 			HashMap<String, Object> temp) {
 
 		String message = "";
-		System.out.println("ddddddddddLOOOOOOOOOOOOOOOOOOOOOO");
+		System.out.println("LOGIN PAGE DETAILS....");
 
 		String captcha = (String) session.getAttribute("CAPTCHA");
 		if (captcha == null || (captcha != null && !captcha.equals(bean.getCaptcha()))) {
@@ -198,17 +195,45 @@ public class LoginController {
 			if (ret == true) {
 				message = "successful";
 				temp.put("msg", message);
-				List<LoginBean> list = dao.getList(bean.getUsername());
-				System.out.println("list  " + list);
-				model.addAttribute("list", list);
-				session.setAttribute("username", bean.getUsername());
-				return "welcom";
+				String identity = dao.getIdentity(bean.getUsername());
+				System.out.println("identity " + identity);
+
+				if (identity == "Teacher" || identity.equals("Teacher")) {
+
+					List<LoginBean> list = dao.getList4();
+					System.out.println("inside Teacher");
+					
+					String teacerId = dao.getteacerId(bean.getUsername());
+					
+					System.out.println("id :" + teacerId);
+					session.setAttribute("id", teacerId);
+					request.setAttribute("id", teacerId);
+
+					session.setAttribute("username", bean.getUsername());
+					model.addAttribute("list", list);
+
+					return "Admin";
+				} else if (identity == "Student" || identity.equals("Student")) {
+					System.out.println("inside Student");
+					List<LoginBean> list = dao.getList(bean.getUsername());
+					System.out.println("username :  " + bean.getUsername());
+
+					System.out.println("list  " + list);
+					model.addAttribute("list", list);
+					session.setAttribute("username", bean.getUsername());
+
+					return "welcom";
+				}
+
+				// String id=list.get(0).getId();
+
 			} else {
 				message = "****THE USERNAME AND PASSWORD YOU HAVE ENTERED DOESN'T EXIST****";
 				temp.put("msg", message);
 				return "error";
 			}
 		}
+		return captcha;
 	}
 
 	/*
@@ -316,7 +341,7 @@ public class LoginController {
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 
 	public String logout1(Model model) {
-		
+
 		model.addAttribute("command", new LoginBean());
 		System.out.println("Log Out.");
 		return "Login";
@@ -325,7 +350,7 @@ public class LoginController {
 	@RequestMapping(value = "/about", method = RequestMethod.GET)
 
 	public String aboutt(Model model) {
-		
+
 		model.addAttribute("command", new registrationbean());
 		System.out.println("About Page.");
 		return "about";
@@ -334,7 +359,7 @@ public class LoginController {
 	@RequestMapping(value = "/contact", method = RequestMethod.GET)
 
 	public String contactt(Model model) {
-		
+
 		model.addAttribute("command", new registrationbean());
 		System.out.println("Contact US Page Details");
 		return "contact";
@@ -345,17 +370,14 @@ public class LoginController {
 	public String dispaly9(@ModelAttribute("lb") LoginBean bean, Model model, HttpSession session) {
 		/* List<LoginBean> list = dao.getList(); */
 
-		
 		List<LoginBean> list = dao.getList4();
 		/*
 		 * System.out.println("list  " + list);
 		 */
 
-		/*
-		 * model.addAttribute("list", list);
-		 */ model.addAttribute("list", list);
+		model.addAttribute("list", list);
 
-		 System.out.println("Admin Page - All users data");
+		System.out.println("Admin Page - All users data");
 
 		return "Admin";
 	}
@@ -363,7 +385,7 @@ public class LoginController {
 	@RequestMapping(value = "/notice", method = RequestMethod.GET)
 
 	public String noticed(@ModelAttribute("lb") NoticeBean bean, Model model, HttpSession session) {
-		
+
 		List<NoticeBean> list = dao.getList6();
 		model.addAttribute("list", list);
 		System.out.println("Notice Board Details");
@@ -374,8 +396,6 @@ public class LoginController {
 
 	public String dispaly10(@ModelAttribute("lb") LoginBean bean, Model model, HttpSession session) {
 
-		
-
 		List<SemesterBean> list1 = dao.getList5();
 
 		model.addAttribute("list1", list1);
@@ -384,55 +404,52 @@ public class LoginController {
 		return "marks";
 
 	}
-	
+
 	@RequestMapping(value = "/editstud.html", method = RequestMethod.GET)
 
-	public ModelAndView editstuddd(Model mode,@RequestParam int id) {
-		System.out.println("Edit Student : "+ id) ;
-		LoginBean i= dao.getList9(id);
-		System.out.println(i) ;
+	public ModelAndView editstuddd(Model mode, @RequestParam int id) {
+		System.out.println("Edit Student : " + id);
+		LoginBean i = dao.getList9(id);
+		System.out.println(i);
 		mode.addAttribute("i", i);
 
 		return new ModelAndView("/updtsem");
-				
+
 	}
 
-	
 	@RequestMapping(value = "/save7.html", method = RequestMethod.POST)
 
 	public String display28(@ModelAttribute("i") LoginBean bean, Model model, int id, BindingResult result) {
 		System.out.println("Edit Student profile :" + id);
-		LoginBean i= dao.getList9(id);
+		LoginBean i = dao.getList9(id);
 		model.addAttribute("i", i);
-	
+
 		int j = dao.updatequery(bean, id);
 		return "editupdtd";
 	}
-	
+
 	@RequestMapping(value = "/editmark.html", method = RequestMethod.GET)
 
-	public ModelAndView editmark(Model mode,@RequestParam int id) {
-		System.out.println("Edit Student Mark : "+ id) ;
-		SemesterBean i= dao.getList10(id);
-		System.out.println(i) ;
+	public ModelAndView editmark(Model mode, @RequestParam int id) {
+		System.out.println("Edit Student Mark : " + id);
+		SemesterBean i = dao.getList10(id);
+		System.out.println(i);
 		mode.addAttribute("i", i);
 
 		return new ModelAndView("/updtmark");
-				
+
 	}
-	
+
 	@RequestMapping(value = "/save8.html", method = RequestMethod.POST)
 
 	public String display29(@ModelAttribute("i") SemesterBean bean, Model model, int id, BindingResult result) {
 		System.out.println("Edit Student Mark :" + id);
-		SemesterBean i= dao.getList10(id);
+		SemesterBean i = dao.getList10(id);
 		model.addAttribute("i", i);
-	
+
 		int j = dao.updatequery2(bean, id);
 		return "editupdtd";
 	}
-	
-	
 
 	@RequestMapping(value = "/updtmark", method = RequestMethod.GET)
 
@@ -443,6 +460,14 @@ public class LoginController {
 	}
 
 	
+	@RequestMapping(value = "/editupdtd", method = RequestMethod.GET)
+
+	public String editupdtd(Model model) {
+
+		model.addAttribute("command", new LoginBean());
+		System.out.println("DETAILS UPDATED.");
+		return "editupdtd";
+	}
 	/*
 	 * @RequestMapping(value = "/save", method = RequestMethod.POST)
 	 * 
@@ -450,8 +475,7 @@ public class LoginController {
 	 * model) { System.out.println("dddddddddd"); model.addAttribute("command", new
 	 * registrationbean()); int i = dao.insertquery(bean); return "registration"; }
 	 */
-	
-	
+
 	/*
 	 * @RequestMapping(value = "/File.jsp", method = RequestMethod.GET)
 	 * 
@@ -460,13 +484,79 @@ public class LoginController {
 	 * List<NoticeBean> list = dao.getList6(); model.addAttribute("list", list);
 	 * System.out.println("notice-upper-serial"); return "File.jsp"; }
 	 */
-	@RequestMapping(value = "/editupdtd", method = RequestMethod.GET)
 
-	public String editupdtd(Model model) {
-		
-		model.addAttribute("command", new LoginBean());
-		System.out.println("DETAILS UPDATED.");
+
+	
+	
+	
+	
+	@RequestMapping(value = "/editprof", method = RequestMethod.GET)
+
+	public String displa(@ModelAttribute("i") LoginBean bean, Model model) {
+		System.out.println("Edit Teacher Profile Deatils..");
+		model.addAttribute("i", new LoginBean());
+		return "editprof";
+	}
+
+	
+	@RequestMapping(value = "edit.html", method = RequestMethod.GET)
+
+	public ModelAndView editTeach(Model mode, @RequestParam int id) {
+		System.out.println("Edit Teacher Profile : " + id);
+		LoginBean i = dao.getList11(id);
+		System.out.println(i);
+		mode.addAttribute("i", i);
+
+		return new ModelAndView("/editprof");
+
+	}
+
+	@RequestMapping(value = "/save9.html", method = RequestMethod.POST)
+
+	public String Teach(@ModelAttribute("i") LoginBean bean, Model model, int id, BindingResult result) {
+		System.out.println("Edit Teacher profile :" + id);
+		LoginBean i = dao.getList11(id);
+		model.addAttribute("i", i);
+
+		int j = dao.updatequery4(bean, id);
 		return "editupdtd";
 	}
+	 
+
 	
+	
+	
+	
+	
+	
+	
+	/*
+	 * @RequestMapping(value = "/editprof", method = RequestMethod.POST)
+	 * 
+	 * public String editprof(@ModelAttribute("i") LoginBean bean, Model model) {
+	 * System.out.println("Update Teacher Profile Details...");
+	 * model.addAttribute("i", new LoginBean()); return "/save9.html"; }
+	 * 
+	 * 
+	 * 
+	 * @RequestMapping(value = "/save9.html", method = RequestMethod.POST)
+	 * 
+	 * public ModelAndView dis(@ModelAttribute("i") LoginBean bean, Model model, int
+	 * id, BindingResult result) {
+	 * System.out.println("Edit Teacher profile of id :"+ id) ; LoginBean i=
+	 * dao.getList11(id); System.out.println(i) ; model.addAttribute("i", i);
+	 * 
+	 * 
+	 * int j = dao.updatequery4(bean, id);
+	 * 
+	 * return new ModelAndView("/editprof"); }
+	 */
+
+	/*
+	 * public String dis(@ModelAttribute("i") LoginBean bean, Model model, int id,
+	 * BindingResult result) { System.out.println("Edit Teacher profile of id :" +
+	 * id); LoginBean i= dao.getList11(id); model.addAttribute("i", i);
+	 * 
+	 * int j = dao.updatequery4(bean, id); return "editprof"; }
+	 */
 }

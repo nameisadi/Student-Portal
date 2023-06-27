@@ -1,7 +1,8 @@
 package studentportal.beans;
 
 public class LoginBean {
-	 private String username;
+	
+	private String username;
 	 private String password;
 	 private String captcha;
 	 private String Name;
@@ -15,6 +16,18 @@ public class LoginBean {
 	 private String Dist;
 	 private String City;
 	 private String id;
+	 private String identity;
+	 
+	 
+	 
+	 
+	 public String getIdentity() {
+		return identity;
+	}
+	public void setIdentity(String identity) {
+		this.identity = identity;
+	}
+	
 	 
 	 
 	 public String getId() {
@@ -102,15 +115,21 @@ public class LoginBean {
 	public void setCaptcha(String captcha) {
 		this.captcha = captcha;
 	}
-	@Override
-	public String toString() {
-		return "LoginBean [username=" + username + ", password=" + password + ", captcha=" + captcha + ", Name=" + Name
-				+ ", Mobile=" + Mobile + ", Address=" + Address + ", Gender=" + Gender + ", F_name=" + F_name
-				+ ", Date_B=" + Date_B + ", Email=" + Email + ", State=" + State + ", Dist=" + Dist + ", City=" + City
-				+ ", id=" + id + "]";
-	}
+	/*
+	 * @Override public String toString() { return "LoginBean [username=" + username
+	 * + ", password=" + password + ", captcha=" + captcha + ", Name=" + Name +
+	 * ", Mobile=" + Mobile + ", Address=" + Address + ", Gender=" + Gender +
+	 * ", F_name=" + F_name + ", Date_B=" + Date_B + ", Email=" + Email + ", State="
+	 * + State + ", Dist=" + Dist + ", City=" + City + ", id=" + id + "]"; }
+	 */
 	
-	
+	 @Override
+		public String toString() {
+			return "LoginBean [username=" + username + ", password=" + password + ", captcha=" + captcha + ", Name=" + Name
+					+ ", Mobile=" + Mobile + ", Address=" + Address + ", Gender=" + Gender + ", F_name=" + F_name
+					+ ", Date_B=" + Date_B + ", Email=" + Email + ", State=" + State + ", Dist=" + Dist + ", City=" + City
+					+ ", id=" + id + ", identity=" + identity + "]";
+		}
 
 	
 

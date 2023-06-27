@@ -34,8 +34,8 @@
 				height="50" width="50" class="img1" />
 			<ul>
 				<a href="File.jsp"><button class="btn btn-black">Home</button></a>
-				<a href="Admin"><button class="btn btn-black">Admin</button></a>
-				<a href="File.jsp"><button class="btn btn-black">Login</button></a>
+				<a href="about"><button class="btn btn-black">About</button></a>
+				<a href="contact"><button class="btn btn-black">Contact Us</button></a>
 
 			</ul>
 		</h1>

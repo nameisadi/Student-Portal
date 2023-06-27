@@ -128,6 +128,7 @@ public class LoginDao {
 				e.setPassword(rs.getString(2));
 				e.setId(rs.getString(13));
 				e.setUsername(rs.getString(1));
+				e.setIdentity(rs.getString(14));
 
 				return e;
 			
@@ -389,6 +390,38 @@ String sql = "SELECT * FROM login where identity='Student' and id='"+id+"'";
 	});
 }
 
+public LoginBean getList11(int id) {
+	
+	  System.out.println("LOGIN DETAILS OF ID:" + id); 
+
+String sql = "SELECT * FROM login where identity='Teacher' and id='"+id+"'";
+	return  jdbcTemplate.queryForObject(sql,new Object[] {},new RowMapper<LoginBean>()
+	{
+		@Override
+		public LoginBean mapRow(ResultSet rs, int row) throws SQLException {
+			LoginBean e = new LoginBean();
+			
+			e.setName(rs.getString(3));
+			e.setGender(rs.getString(10));
+			e.setF_name(rs.getString(4));
+			e.setDate_B(rs.getString(12));
+			e.setEmail(rs.getString(6));
+			e.setMobile(rs.getString(11));
+			e.setAddress(rs.getString(5));
+			e.setState(rs.getString(7));
+			e.setDist(rs.getString(8));
+			e.setCity(rs.getString(9));
+			e.setPassword(rs.getString(2));
+			e.setId(rs.getString(13));
+			e.setUsername(rs.getString(1));
+			
+			return e;
+		
+		}
+
+	});
+}
+
 public SemesterBean getList10(int id) {
 	
 	  System.out.println("MARK DETAILS OF ID:" + id); 
@@ -454,6 +487,28 @@ public static int updatequery(LoginBean bean, int id) {
 
 	}
 
+public static int updatequery4(LoginBean bean, int id) {
+	
+	System.out.println("bean.getName() "+bean.getName());
+	System.out.println("bean.getF_Name() "+bean.getF_name());
+	System.out.println("bean.getGender() "+bean.getGender());
+	System.out.println("bean.getMobile() "+bean.getMobile());
+	System.out.println("bean.getAddress() "+bean.getAddress());
+	System.out.println("bean.getDate_B() "+bean.getDate_B());
+	System.out.println("bean.getEmail() "+bean.getEmail());
+	System.out.println("bean.getState() "+bean.getState());
+	System.out.println("bean.getDist() "+bean.getDist());
+	System.out.println("bean.getCity() "+bean.getCity());
+	System.out.println("bean.getUsername() "+bean.getUsername());
+	System.out.println("bean.getPassword() "+bean.getPassword());
+
+	
+	String sql="update login set name=?, f_name=?, gender=?, mobile=?, address=?, date_b=?, email=?, state=?, dist=?, city=?, username=?, password=? where id='"+id+"'";
+	
+	return jdbcTemplate.update(sql,new Object[] {bean.getName(),bean.getF_name(),bean.getGender(),bean.getMobile(),bean.getAddress(),bean.getDate_B(),bean.getEmail(),bean.getState(),bean.getDist(),bean.getCity(),bean.getUsername(),bean.getPassword()});
+
+	}
+
 public static int updatequery2(SemesterBean bean, int id) {
 	
 	System.out.println("bean.getRoll() "+bean.getRoll());
@@ -471,6 +526,24 @@ public static int updatequery2(SemesterBean bean, int id) {
 	return jdbcTemplate.update(sql,new Object[] {bean.getRoll(),bean.getEnglish(),bean.getMath(),bean.getComputer(),bean.getSocial(),bean.getMarkobt(),bean.getMaxmark()});
 
 	}
+
+public String getIdentity(String username) {
+	String sql = "select identity from login where username= ?";
+	System.out.println(sql + "ttt");
+	String identity = jdbcTemplate.queryForObject(sql, String.class, username);
+	
+	return identity;
+}
+
+public String getteacerId(String username) {
+	String sql = "select id from login where username= '"+username+"'";
+	System.out.println(sql + "ttt");
+	String id = jdbcTemplate.queryForObject(sql, String.class);
+	
+	System.out.println("id :"+id);
+	
+	return id;
+}
 
 }
 

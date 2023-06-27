@@ -11,7 +11,7 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>About</title>
+<title>All Marks</title>
 </head>
 <body>	
 
@@ -37,6 +37,7 @@
 		<div class="sidebar">
 			<header>MENU</header>
 			<ul>
+			    <li><a href="editprof"><i class="fas fa-qrcode"></i>PROFILE DETAILS</a></li>
 				<li><a href="Admin"><i class="fas fa-qrcode"></i>STUDENT'S DATA</a></li>
 				<li><a href="#"><i class="fas fa-link"></i>STUDENT MARKS</a></li>
 				<li><a href="updtnotice"><i class="fas fa-calendar-week"></i>UPDATE NOTICE</a></li>
@@ -160,7 +161,7 @@ margin-left:268px;
 	border-radius:12px;
 	left: 0;
 	width: 260px;
-	height: 45%;
+	height: 50%;
 	background: black;  /* #042331 */
 }
 .sidebar ul{

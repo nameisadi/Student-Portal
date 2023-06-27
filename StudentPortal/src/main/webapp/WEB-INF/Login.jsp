@@ -39,6 +39,7 @@
 		<div class="col-md-6 col-sm-12">
 
 			<div class="login-form">
+			<a href="File.jsp"><button class="btn btn-black">Back</button></a><br><br>
 				<form:form name="myform" action="log" method="post" ModelAttribute="lb"
 					onsubmit="return validateform()" autocomplete="off">
 					<div class="form-group">

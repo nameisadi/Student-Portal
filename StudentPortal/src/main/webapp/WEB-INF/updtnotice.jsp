@@ -35,8 +35,8 @@
 				height="50" width="50" class="img1" />
 			<ul>
 				<a href="File.jsp"><button class="btn btn-black">Home</button></a>
-				<a href="Admin"><button class="btn btn-black">Admin</button></a>
-				<a href="File.jsp"><button class="btn btn-black">Login</button></a>
+				<a href="about"><button class="btn btn-black">About</button></a>
+				<a href="contact"><button class="btn btn-black">Contact Us</button></a>
 
 			</ul>
 		</h1>
@@ -47,7 +47,8 @@
 
 		<div class="sidebar">
 			<header>MENU</header>
-			<ul>
+			<ul>				
+				<li><a href="editprof"><i class="fas fa-qrcode"></i>PROFILE DETAILS</a></li>
 				<li><a href="Admin"><i class="fas fa-qrcode"></i>STUDENT'S DATA</a></li>
 				<li><a href="marks"><i class="fas fa-link"></i>STUDENT MARKS</a></li>
 				<li><a href="#"><i class="fas fa-calendar-week"></i>UPDATE NOTICE</a></li>
@@ -193,7 +194,7 @@ margin-left:268px;
 	border-radius:12px;
 	left: 0;
 	width: 260px;
-	height: 45%;
+	height: 50%;
 	background: black;  /* #042331 */
 }
 .sidebar ul{

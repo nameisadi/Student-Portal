@@ -14,6 +14,10 @@
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<%
+String edit = (String) request.getAttribute("id");
+System.out.println("edit:" + edit);
+%>
 <head>
  <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="Keywords" content="html, css, html tables, table">
@@ -35,8 +39,8 @@
 				height="50" width="50" class="img1" />
 			<ul>
 				<a href="File.jsp"><button class="btn btn-black">Home</button></a>
-				<a href="Admin"><button class="btn btn-black">Admin</button></a>
-				<a href="File.jsp"><button class="btn btn-black">Login</button></a>
+				<a href="about"><button class="btn btn-black">About</button></a>
+				<a href="contact"><button class="btn btn-black">Contact Us</button></a>
 
 			</ul>
 		</h1>
@@ -46,8 +50,15 @@
 <h4>Admin Panel</h4>
 
 		<div class="sidebar">
-			<header>MENU</header>
+			<header>MENU </header>
 			<ul>
+			
+			<%-- <%
+			String edit = (String) request.getAttribute("id");
+			System.out.println("edit:" + edit);
+			%> --%>
+			
+				<li><a href="edit.html?id=${1001}"><i class="fas fa-qrcode"></i>PROFILE DETAILS</a></li>
 				<li><a href="#"><i class="fas fa-qrcode"></i>STUDENT'S DATA</a></li>
 				<li><a href="marks"><i class="fas fa-link"></i>STUDENT'S MARKS</a></li>
 				<li><a href="updtnotice"><i class="fas fa-calendar-week"></i>UPDATE NOTICE</a></li>
@@ -57,11 +68,9 @@
 
 
 
-		
-
-				 <h3> All STUDENT'S DATA SHOWN BELOW:</h3>
-				
- 
+	    	
+			
+				 <h3> All STUDENT'S DATA SHOWN BELOW: </h3>
                 <TABLE align="center" width="20%" cellpadding="3" BORDER="10">
                 
 <tr>
@@ -205,7 +214,7 @@ margin-left:268px;
 	border-radius:12px;
 	left: 0;
 	width: 260px;
-	height: 45%;	
+	height: 50%;	
 	background: black;  /* #042331 */
 }
 .sidebar ul{
