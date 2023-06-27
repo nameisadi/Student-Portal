@@ -13,6 +13,10 @@ OUTPUT :
 ![image](https://github.com/nameisadi/Student-Portal/assets/113473404/8b1a033d-879c-49f4-9eec-8013dc16fa60)
 ![image](https://github.com/nameisadi/Student-Portal/assets/113473404/c068aa48-71b6-4e74-a4a5-05995ee04c98)
 ![image](https://github.com/nameisadi/Student-Portal/assets/113473404/7492ec2c-3db3-4e02-93c5-16a770481a78)
+![image](https://github.com/nameisadi/Student-Portal/assets/113473404/ac1682eb-4144-4b08-9dc8-56335210bbe6)
+![image](https://github.com/nameisadi/Student-Portal/assets/113473404/03e82185-8a6d-4e38-81ce-78a75396b708)
+
+
 
 
 
